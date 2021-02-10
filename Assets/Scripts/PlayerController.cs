@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMove ();
-        PlayerRaycast ();
+        PlayerMove();
+        PlayerRaycast();
     }
 
 
@@ -37,19 +37,19 @@ public class PlayerController : MonoBehaviour
 
         //controls
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown ("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
         }
 
         //player direction
-        if (moveX < 0.0f )
+        if (moveX < 0.0f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (moveX > 0.0f )
+        else if (moveX > 0.0f)
         {
-            GetComponent<SpriteRenderer>().flipX = false;   
+            GetComponent<SpriteRenderer>().flipX = false;
         }
 
         //physics
@@ -63,21 +63,26 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
     }
 
-    
-    void PlayerRaycast ()
+
+    void PlayerRaycast()
     {
         //Raycast hit itembox above you
         RaycastHit2D rayUp = Physics2D.Raycast(transform.position, Vector2.up);
         if (rayUp != null && rayUp.collider != null && rayUp.distance < 0.9f && rayUp.collider.tag == "ItemBox")
         {
-            Destroy (rayUp.collider.gameObject);
+            //      Destroy (rayUp.collider.gameObject);
         }
 
         //Raycast hit enemy below you
         RaycastHit2D rayDown = Physics2D.Raycast(transform.position, Vector2.down);
-        if (rayDown != null && rayDown.collider != null && rayDown.distance < 0.9f && rayDown.collider.tag == "Enemy")
+        if (rayDown != null && rayDown.collider != null && rayDown.distance < 0.5f && rayDown.collider.tag == "Enemy")
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 100);
+            if (rayDown.collider.tag == "Enemy")
+            {
+                //              Destroy(rayDown.collider.gameObject);
+            }
+
         }
         if (rayDown != null && rayDown.collider != null && rayDown.distance < 0.9f && rayDown.collider.tag != "Enemy")
         {

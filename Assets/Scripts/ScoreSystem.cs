@@ -45,10 +45,20 @@ public class ScoreSystem : MonoBehaviour
             score += 10;
             Destroy(trig.gameObject);
         }
+        if (trig.gameObject.tag == "Enemy")
+        {
+            score += 100;
+            Destroy(trig.gameObject);
+        }
+        if (trig.gameObject.tag == "ItemBox")
+        {
+            score += 50;
+            Destroy(trig.gameObject);
+        }
     }
 
 
-    void CountScore ()
+    void CountScore()
     {
         score = score + (int)(timeLeft * 10);
         DataManagement.datamanagement.highScore = score = (int)(timeLeft * 10);
