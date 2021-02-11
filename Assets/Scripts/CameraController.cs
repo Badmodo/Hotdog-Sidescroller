@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private GameObject player;
     public float xMin;
     public float xMax;
     public float yMin;
     public float yMax;
 
-    // Start is called before the first frame update
+    PlayerController player;
+
     void Start()
     {
-        if (GameObject.FindWithTag("Player") != null)
-        {
-            player = GameObject.FindWithTag("Player");
-        }
+        player = (PlayerController)FindObjectOfType(typeof(PlayerController));
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindWithTag("Player") != null)
+        if (player != null)
         {
             float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
             float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
