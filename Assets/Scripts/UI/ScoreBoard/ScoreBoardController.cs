@@ -12,7 +12,7 @@ public class ScoreBoardController : MonoBehaviour
 
     public void GoToNextLevel ()
     {
-        SceneManager.LoadScene("Prototype 1");
+        LevelLoader.LoadGameplayLevel();
     }
 
     public void OpenScoreBoard()

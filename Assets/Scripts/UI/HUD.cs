@@ -6,8 +6,14 @@ public class HUD : MonoBehaviour
 {
     const int MaxHealth = 3;
 
+    [Header("Health")]
     [SerializeField] Image[] HealthSlots;
     [SerializeField] Sprite HealthIcon;
+
+    [Header("Score")]
+    public Text timeLeft;
+    public Text score;
+
     public void SetHealth(int healthPoints)
     {
         for (int i = 0; i < HealthSlots.Length; i++)
@@ -17,6 +23,16 @@ public class HUD : MonoBehaviour
                 HealthSlots[i].enabled = i < healthPoints;
             }
         }
+    }
+
+    public void SetTime(int amount)
+    {
+        timeLeft.text = amount.ToString();
+    }
+
+    public void SetScore(int amount)
+    {
+        score.text = amount.ToString();
     }
 
     void Start()

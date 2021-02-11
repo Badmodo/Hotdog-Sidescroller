@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreSystem : MonoBehaviour
@@ -9,24 +8,30 @@ public class ScoreSystem : MonoBehaviour
     //creating a serizlied incripted save file, getting our score and sending to save file and writing to a file that will stay there through updates.
     public float timeLeft = 120;
     public int score = 0;
-    public GameObject timeLeftUI;
-    public GameObject scoreUI;
+
+    UIManager uiManager;
+
+    public void AddScore (int amount)
+    {
+        score += amount;
+        uiManager.SetScore(score);
+    }
 
     private void Start()
     {
-        timeLeftUI = GameObject.Find("TimeLeft");
-        scoreUI = GameObject.Find("Score");
+        uiManager = UIManager.Instance;
+        uiManager.SetScore(score);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         timeLeft -= Time.deltaTime;
-        timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left:" + (int)timeLeft);
-        scoreUI.gameObject.GetComponent<Text>().text = ("Score:" + score);
+        uiManager.SetTime((int)timeLeft);
+        //timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left:" + (int)timeLeft);
+        //scoreUI.gameObject.GetComponent<Text>().text = ("Score:" + score);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Prototype 1");
+            LevelLoader.LoadGameplayLevel();
         }
     }
 
@@ -41,11 +46,10 @@ public class ScoreSystem : MonoBehaviour
         }
         if (trig.gameObject.tag == "Coin")
         {
-            score += 10;
+            AddScore(10);
             Destroy(trig.gameObject);
         }
     }
-
 
     void CountScore ()
     {

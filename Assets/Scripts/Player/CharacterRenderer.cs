@@ -27,8 +27,6 @@ public class CharacterRenderer : MonoBehaviour
 
     public void PlayerDamaged ()
     {
-
-        Debug.Log(" :=dnged");
         StartCoroutine(Blink());
     }
 

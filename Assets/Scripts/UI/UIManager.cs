@@ -17,13 +17,16 @@ public class UIManager : MonoBehaviour
         hud = GetComponent<HUD>();
     }
 
+
+
     public void OpenScoreBoard ()
     {
         scoreBoard.OpenScoreBoard();
     }
 
-    public void SetHealth (int amount)
-    {
-        hud.SetHealth(amount);
-    }
+    #region HUD
+    public void SetHealth (int amount) => hud.SetHealth(amount);
+    public void SetTime(int amount) => hud.SetTime(amount);
+    public void SetScore(int amount) => hud.SetScore(amount);
+    #endregion
 }
