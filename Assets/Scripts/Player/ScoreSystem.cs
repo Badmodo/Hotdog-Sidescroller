@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class ScoreSystem : MonoBehaviour
 {
     //creating a serizlied incripted save file, getting our score and sending to save file and writing to a file that will stay there through updates.

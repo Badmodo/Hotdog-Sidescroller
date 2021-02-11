@@ -4,24 +4,42 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    const float OnHurtInvulnerabilityDuration = 1f; //The invulnerability durating that occurs after taking a damage.
 
     public int playerSpeed = 10;
     public int playerJumpPower = 1250;
-    private float moveX;
     public bool isGrounded;
     public float distanceToBottomOfPlayer = 0.9f;
 
+    //Class references
+    CharacterRenderer characterRenderer;
+    PlayerHealth playerHealth;
 
+    //Status
+    float hurtInvulnerabilityTimer = -1;
+    float moveX;
 
-    // Update is called once per frame
+    public void PlayerDamaged ()
+    {
+        if (CanPlayerBeDamaged())
+        {
+            StartHurtInvulnerabilityTimer();
+            characterRenderer.PlayerDamaged();
+            playerHealth.TakeDamage();
+        }
+    }
+
+    void Awake()
+    {
+        characterRenderer = GetComponent<CharacterRenderer>();
+        playerHealth = GetComponent<PlayerHealth>();
+    }
+
     void Update()
     {
         PlayerMove ();
         PlayerRaycast ();
     }
-
-
-
 
     void PlayerMove()
     {
@@ -84,4 +102,30 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    #region Hurt timer
+    //The hurt timer prevents the player from being too rapided damaged. 
+
+
+    bool CanPlayerBeDamaged()
+    {
+        return hurtInvulnerabilityTimer <= 0f;
+    }
+
+    void StartHurtInvulnerabilityTimer ()
+    {
+        hurtInvulnerabilityTimer = OnHurtInvulnerabilityDuration;
+        StartCoroutine(InvulnerbilityTimerCountdown());
+    }
+
+    IEnumerator InvulnerbilityTimerCountdown()
+    {
+        while (hurtInvulnerabilityTimer > 0f)
+        {
+            hurtInvulnerabilityTimer -= Time.deltaTime;
+            yield return null;
+        }
+    }
+    #endregion
+
 }

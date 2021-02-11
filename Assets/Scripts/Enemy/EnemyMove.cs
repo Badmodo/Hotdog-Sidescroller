@@ -18,7 +18,6 @@ public class EnemyMove : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-
     void Update()
     {
         CollisionDetection();
@@ -47,8 +46,14 @@ public class EnemyMove : MonoBehaviour
 
     void HitsPlayerCollider(Collider2D collider)
     {
+        PlayerController playerController = collider.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.PlayerDamaged();
+        }
+
         //Destroy(hit.collider.gameObject);
-        SceneManager.LoadScene("Prototype 1");
+        //SceneManager.LoadScene("Prototype 1");
 
         //Cause player damage
     }
@@ -81,10 +86,10 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(20, 20, 200, 20), "facingRight " + facingRight);
-        GUI.Label(new Rect(20, 40, 200, 20), "sr.flipX " + sr.flipX);
-        GUI.Label(new Rect(20, 60, 200, 20), "moveDir " + moveDir);
-    }
+    //void OnGUI()
+    //{
+    //    GUI.Label(new Rect(20, 20, 200, 20), "facingRight " + facingRight);
+    //    GUI.Label(new Rect(20, 40, 200, 20), "sr.flipX " + sr.flipX);
+    //    GUI.Label(new Rect(20, 60, 200, 20), "moveDir " + moveDir);
+    //}
 }
