@@ -28,6 +28,7 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeLeft -= Time.deltaTime;
         uiManager.SetTime((int)timeLeft);
         if (timeLeft < 0.1f)
         {
@@ -37,14 +38,7 @@ public class ScoreSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        //adds score to the score object
-        if (trig.gameObject.tag == "LevelEnd")
-        {
-            uiManager.OpenScoreBoard();
-            //CountScore();
-            //saves data
-            //DataManagement.datamanagement.SaveData();
-        }
+
         if (trig.gameObject.tag == "Coin")
         {
             AddScore(10);
@@ -55,18 +49,18 @@ public class ScoreSystem : MonoBehaviour
             AddScore(100);
             Destroy(trig.gameObject);
         }
-        if (trig.gameObject.tag == "ItemBox")
-        {
-            AddScore(50);
-            Destroy(trig.gameObject);
-        }
+        //if (trig.gameObject.tag == "ItemBox")
+        //{
+        //    AddScore(50);
+        //    Destroy(trig.gameObject);
+        //}
     }
 
 
-    //void CountScore()
-    //{
-    //    score = score + (int)(timeLeft * 10);
-    //    DataManagement.datamanagement.highScore = score = (int)(timeLeft * 10);
-    //    DataManagement.datamanagement.SaveData();
-    //}
+    void CountScore()
+    {
+        score = score + (int)(timeLeft * 10);
+        DataManagement.datamanagement.highScore = score = (int)(timeLeft * 10);
+        DataManagement.datamanagement.SaveData();
+    }
 }

@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMove();
         PlayerRaycast();
+        PlayerAnimationUpdate();
     }
     #endregion
 
@@ -63,20 +64,7 @@ public class PlayerController : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         if (PressedJump() && isGrounded)
         {
-            Jump();
-        }
-
-        //animation
-        PlayerAnimationUpdate();
-
-        //player direction
-        if (moveX < 0.0f)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else if (moveX > 0.0f)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
+            Jump(playerJumpPower);
         }
 
         //physics
@@ -90,6 +78,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D rayUp = Physics2D.Raycast(transform.position, Vector2.up);
         if (rayUp != null && rayUp.collider != null && rayUp.distance < 0.9f && rayUp.collider.tag == "ItemBox")
         {
+            scoreSystem.AddScore(50);
             Destroy(rayUp.collider.gameObject);
         }
 
@@ -107,16 +96,9 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Jump
-
-    void Jump()
+    void Jump(float jumpForce)
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
-        isGrounded = false;
-    }
-
-    void ExtraJump()
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower * 3f);
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
         isGrounded = false;
     }
     #endregion
@@ -131,6 +113,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetBool("IsWalking", false);
+        }
+
+        //Player sprite facing direction
+        if (moveX < 0.0f)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (moveX > 0.0f)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
     #endregion
@@ -150,7 +142,7 @@ public class PlayerController : MonoBehaviour
         {
             scoreSystem.AddScore(100);
             enemYCollider.gameObject.GetComponent<EnemyMove>()?.SteppedOnByPlayer();
-            ExtraJump();
+            Jump(playerJumpPower * 3f);
         }
         else
         {
