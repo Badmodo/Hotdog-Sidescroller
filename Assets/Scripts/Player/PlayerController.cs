@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region MonoBehavior
     void Awake()
     {
         characterRenderer = GetComponent<CharacterRenderer>();
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
     {
         //GUI.Label(new Rect(20, 20, 200, 20), "Collider bound y: " + collider.bounds.min.y);
     }
+    #endregion
+
 
     void PlayerMove()
     {
@@ -88,13 +91,6 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     }
 
-    void Jump()
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
-        isGrounded = false;
-    }
-
-
     void PlayerRaycast()
     {
         //Raycast hit itembox above you
@@ -116,6 +112,21 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    #region Jump
+
+    void Jump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
+        isGrounded = false;
+    }
+
+    void ExtraJump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower * 3f);
+        isGrounded = false;
+    }
+    #endregion
 
     #region Collision
     void OnCollisionStay2D(Collision2D collision)
@@ -140,11 +151,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ExtraJump ()
-    {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower * 3f);
-        isGrounded = false;
-    }
 
     bool IsPlayerAboveTarget (Collider2D targetCollider)
     {

@@ -47,17 +47,17 @@ public class ScoreSystem : MonoBehaviour
         }
         if (trig.gameObject.tag == "Coin")
         {
-            score += 10;
+            AddScore(10);
             Destroy(trig.gameObject);
         }
         if (trig.gameObject.tag == "Enemy")
         {
-            score += 100;
+            AddScore(100);
             Destroy(trig.gameObject);
         }
         if (trig.gameObject.tag == "ItemBox")
         {
-            score += 50;
+            AddScore(50);
             Destroy(trig.gameObject);
         }
     }

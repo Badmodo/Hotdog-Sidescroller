@@ -13,7 +13,8 @@ public class Teleport : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D trig)
     {
-        if (Input.GetButtonDown("Vertical"))
+        Debug.Log("Checking");
+        if (Input.GetButtonDown("Vertical") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             trig.gameObject.transform.position = sp2.gameObject.transform.position;
         }
