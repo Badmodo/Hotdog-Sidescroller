@@ -132,12 +132,18 @@ public class PlayerController : MonoBehaviour
         {
             scoreSystem.AddScore(100);
             enemYCollider.gameObject.GetComponent<EnemyMove>()?.SteppedOnByPlayer();
-            Jump();
+            ExtraJump();
         }
         else
         {
             DamagePlayer();
         }
+    }
+
+    void ExtraJump ()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower * 3f);
+        isGrounded = false;
     }
 
     bool IsPlayerAboveTarget (Collider2D targetCollider)

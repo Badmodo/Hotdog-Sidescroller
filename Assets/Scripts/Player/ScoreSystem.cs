@@ -10,24 +10,28 @@ public class ScoreSystem : MonoBehaviour
     //creating a serizlied incripted save file, getting our score and sending to save file and writing to a file that will stay there through updates.
     public float timeLeft = 120;
     public int score = 0;
-    public GameObject timeLeftUI;
-    public GameObject scoreUI;
+
+    UIManager uiManager;
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        uiManager.SetScore(score);
+    }
 
     private void Start()
     {
-        timeLeftUI = GameObject.Find("TimeLeft");
-        scoreUI = GameObject.Find("Score");
+        uiManager = UIManager.Instance;
+        uiManager.SetScore(score);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left:" + (int)timeLeft);
-        scoreUI.gameObject.GetComponent<Text>().text = ("Score:" + score);
+        uiManager.SetTime((int)timeLeft);
         if (timeLeft < 0.1f)
         {
-            SceneManager.LoadScene("Prototype 1");
+            LevelLoader.LoadGameplayLevel();
         }
     }
 
@@ -36,9 +40,10 @@ public class ScoreSystem : MonoBehaviour
         //adds score to the score object
         if (trig.gameObject.tag == "LevelEnd")
         {
-            CountScore();
+            uiManager.OpenScoreBoard();
+            //CountScore();
             //saves data
-            DataManagement.datamanagement.SaveData();
+            //DataManagement.datamanagement.SaveData();
         }
         if (trig.gameObject.tag == "Coin")
         {
@@ -58,10 +63,10 @@ public class ScoreSystem : MonoBehaviour
     }
 
 
-    void CountScore()
-    {
-        score = score + (int)(timeLeft * 10);
-        DataManagement.datamanagement.highScore = score = (int)(timeLeft * 10);
-        DataManagement.datamanagement.SaveData();
-    }
+    //void CountScore()
+    //{
+    //    score = score + (int)(timeLeft * 10);
+    //    DataManagement.datamanagement.highScore = score = (int)(timeLeft * 10);
+    //    DataManagement.datamanagement.SaveData();
+    //}
 }
