@@ -17,5 +17,7 @@ public class Teleport : MonoBehaviour
         {
             trig.gameObject.transform.position = sp2.gameObject.transform.position;
         }
+
     }
+
 }
