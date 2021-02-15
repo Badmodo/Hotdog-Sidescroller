@@ -7,7 +7,7 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject[] players;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (PlayerPrefs.GetInt ("SelectedCharacter") == 0)
         {
@@ -18,6 +18,4 @@ public class CharacterSpawner : MonoBehaviour
             Instantiate(players[(1)], Vector2.zero, Quaternion.identity);
         }
     }
-
-
 }
