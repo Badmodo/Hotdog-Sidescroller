@@ -6,18 +6,44 @@ public class Teleport : MonoBehaviour
 {
     public GameObject sp1, sp2;
 
+    bool playerOverlappingDoor;
+    GameObject player;
 
     private void Start()
     {
         sp1 = this.gameObject;
     }
 
-    void OnTriggerStay2D(Collider2D trig)
+    IEnumerator DetectKey ()
     {
-        Debug.Log("Checking");
-        if (Input.GetButtonDown("Vertical") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+        playerOverlappingDoor = true;
+        while (playerOverlappingDoor)
         {
-            trig.gameObject.transform.position = sp2.gameObject.transform.position;
+            if (Input.GetButtonDown("Vertical"))
+            {
+                player.transform.position = sp2.gameObject.transform.position;
+                playerOverlappingDoor = false;
+            }
+            yield return null;
         }
     }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (GameLayers.IsTargetOnPlayerLayer(collision.gameObject))
+        {
+            player = collision.gameObject;
+            StartCoroutine(DetectKey());
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (GameLayers.IsTargetOnPlayerLayer(collision.gameObject))
+        {
+            playerOverlappingDoor = false;
+        }
+    }
+
 }
