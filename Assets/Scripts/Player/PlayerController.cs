@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     float hurtBlinkTimer = -1;
     float moveX;
 
+    //Cache
+    Vector2 offsetBL; //Bottom left
+    Vector2 offsetBR; //Bottom right
+
     public void DamagePlayer()
     {
         if (!InHurtBlink())
@@ -41,6 +45,9 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         scoreSystem = GetComponent<ScoreSystem>();
         collider = GetComponent<Collider2D>();
+
+        offsetBL = new Vector2(-collider.bounds.extents.x, -collider.bounds.extents.y);
+        offsetBL = new Vector2(collider.bounds.extents.x, -collider.bounds.extents.y);
     }
 
     void Update()
@@ -48,33 +55,19 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
         PlayerRaycast();
     }
-
-    void OnGUI()
-    {
-        //GUI.Label(new Rect(20, 20, 200, 20), "Collider bound y: " + collider.bounds.min.y);
-    }
     #endregion
-
 
     void PlayerMove()
     {
-        //animation
-        if (moveX != 0)
-        {
-            GetComponent<Animator>().SetBool("IsWalking", true);
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("IsWalking", false);
-        }
-
         //controls
         moveX = Input.GetAxis("Horizontal");
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
-            || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded == true)
+        if (PressedJump() && isGrounded)
         {
             Jump();
         }
+
+        //animation
+        PlayerAnimationUpdate();
 
         //player direction
         if (moveX < 0.0f)
@@ -125,6 +118,20 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower * 3f);
         isGrounded = false;
+    }
+    #endregion
+
+    #region Feedback
+    void PlayerAnimationUpdate ()
+    {
+        if (moveX != 0)
+        {
+            GetComponent<Animator>().SetBool("IsWalking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsWalking", false);
+        }
     }
     #endregion
 
@@ -179,5 +186,10 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+    #endregion
+
+    #region Helpers
+    bool PressedJump() => (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
+            || Input.GetKeyDown(KeyCode.UpArrow));
     #endregion
 }

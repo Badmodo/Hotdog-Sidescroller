@@ -6,6 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public GameObject sp1, sp2;
 
+
     private void Start()
     {
         sp1 = this.gameObject;
