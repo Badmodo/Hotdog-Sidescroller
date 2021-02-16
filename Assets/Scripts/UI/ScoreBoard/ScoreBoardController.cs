@@ -15,14 +15,14 @@ public class ScoreBoardController : MonoBehaviour
         LevelLoader.LoadGameplayLevel();
     }
 
-    public void OpenScoreBoard()
+    public void OpenScoreBoard(int score)
     {
         scoreScreenGroup.SetActive(true);
 
-        int score = 9999;
-        ScoreSystem scoreSystem = (ScoreSystem)FindObjectOfType(typeof(ScoreSystem));
-        if (scoreSystem != null)
-            score = scoreSystem.score;
+        //int score = 9999;
+        //ScoreSystem scoreSystem = (ScoreSystem)FindObjectOfType(typeof(ScoreSystem));
+        //if (scoreSystem != null)
+        //    score = scoreSystem.score;
 
         StartCoroutine(PlayScoreTickingAnimation(score));
     }

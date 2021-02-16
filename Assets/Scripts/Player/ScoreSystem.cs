@@ -9,7 +9,7 @@ public class ScoreSystem : MonoBehaviour
 {
     //creating a serizlied incripted save file, getting our score and sending to save file and writing to a file that will stay there through updates.
     public float timeLeft = 120;
-    public int score = 0;
+    public static int score = 0;
 
     UIManager uiManager;
 

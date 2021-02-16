@@ -19,9 +19,9 @@ public class UIManager : MonoBehaviour
 
 
 
-    public void OpenScoreBoard ()
+    public void OpenScoreBoard (int score)
     {
-        scoreBoard.OpenScoreBoard();
+        scoreBoard.OpenScoreBoard(score);
     }
 
     #region HUD

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndGameTrigger : MonoBehaviour
+public class EndGameTrigger3D : MonoBehaviour
 {
     UIManager uiManager;
 
@@ -11,11 +11,11 @@ public class EndGameTrigger : MonoBehaviour
         uiManager = UIManager.Instance;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (GameLayers.IsTargetOnPlayerLayer(collision.gameObject))
+        if (GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
-            uiManager.OpenScoreBoard(ScoreSystem.score);
+            uiManager.OpenScoreBoard(PlayerController3D.Score);
         }
     }
 }

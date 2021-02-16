@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public int EnemySpeed;
     public bool facingRight = false;

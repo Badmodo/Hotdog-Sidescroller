@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         if (IsPlayerAboveTarget(enemYCollider))
         {
             scoreSystem.AddScore(100);
-            enemYCollider.gameObject.GetComponent<EnemyMove>()?.SteppedOnByPlayer();
+            enemYCollider.gameObject.GetComponent<EnemyController>()?.SteppedOnByPlayer();
             Jump(playerJumpPower * 3f);
         }
         else
