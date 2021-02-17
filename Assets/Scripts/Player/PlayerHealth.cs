@@ -28,7 +28,10 @@ public class PlayerHealth : MonoBehaviour
     {
         //When game starts, set the player's health to max health.
         health = MaxHealth;
+    }
 
+    void Start()
+    {
         //Reference UIManager
         uiManager = UIManager.Instance;
     }
@@ -43,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die ()
     {
-        SceneManager.LoadScene("Prototype 1");
+        //SceneManager.LoadScene("Prototype 1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

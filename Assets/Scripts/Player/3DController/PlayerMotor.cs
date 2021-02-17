@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRaycaster))]
 public class PlayerMotor : MonoBehaviour
 {
+    const int MaxJumps = 2;
+
     public int moveSpeed = 400;
     public int jumpPower = 1250;
     public int gravity = 250;
@@ -18,6 +20,8 @@ public class PlayerMotor : MonoBehaviour
     Collider collider;
 
     //Status
+    bool hasAirJump = true;
+
     Vector2 targetVelocity = Vector2.zero;
     Vector2 currentVelocity = Vector2.zero;
     bool onGround;
@@ -33,21 +37,21 @@ public class PlayerMotor : MonoBehaviour
         collider = GetComponent<Collider>();
     }
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround);
-        GUI.Label(new Rect(20, 40, 200, 20), "rb.velocity = " + rb.velocity);
-        GUI.Label(new Rect(20, 60, 200, 20), "Falling = " + Falling);
-        GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity);
-        GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity);
-    }
+    //void OnGUI()
+    //{
+    //    GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround);
+    //    GUI.Label(new Rect(20, 40, 200, 20), "rb.velocity = " + rb.velocity);
+    //    GUI.Label(new Rect(20, 60, 200, 20), "Falling = " + Falling);
+    //    GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity);
+    //    GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity);
+    //}
     #endregion
 
     #region Public 
     public bool IsAboveTarget(Collider target) => (collider.bounds.min.y - 0.1f) > (target.bounds.min.y);
     public void SteppedOnEnemy()
     {
-        Jump(jumpPower * 2f);
+        Jump(jumpPower);
     }
 
     public void TickUpdate()
@@ -74,7 +78,10 @@ public class PlayerMotor : MonoBehaviour
         else
             onGround = false;
 
-
+        if (onGround)
+        {
+            hasAirJump = true;
+        }
     }
 
     void ApplyGravity()
@@ -110,9 +117,17 @@ public class PlayerMotor : MonoBehaviour
 
     void DetectJumpCommand()
     {
-        if (PressedJump && Falling && onGround)
+        if (PressedJump)
         {
-            Jump(jumpPower);
+            if (Falling && onGround)
+            {
+                Jump(jumpPower);
+            }
+            else if (hasAirJump)
+            {
+                hasAirJump = false;
+                Jump(jumpPower);
+            }
         }
     }
 

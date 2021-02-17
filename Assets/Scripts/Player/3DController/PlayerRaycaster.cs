@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerRaycaster : MonoBehaviour
 {
     public LayerMask groundLayer;
+    public LayerMask enemyLayer;
     Collider collider;
 
     //Cache
@@ -44,9 +45,7 @@ public class PlayerRaycaster : MonoBehaviour
         offsetTL = new Vector3(-extentX, extentY);
         offsetTR = new Vector3(extentX, extentY);
     }
-    #endregion
 
-    #region Public
     void Update()
     {
         UpdateOffsets();

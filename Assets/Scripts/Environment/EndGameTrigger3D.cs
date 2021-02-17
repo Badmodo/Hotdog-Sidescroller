@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EndGameTrigger3D : MonoBehaviour
 {
+    bool triggered = false;
+    
     UIManager uiManager;
+
 
     private void Start()
     {
@@ -13,8 +16,9 @@ public class EndGameTrigger3D : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (GameLayers.IsTargetOnPlayerLayer(other.gameObject))
+        if (!triggered && GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
+            triggered = true;
             uiManager.OpenScoreBoard(PlayerController3D.Score);
         }
     }

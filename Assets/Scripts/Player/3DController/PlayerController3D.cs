@@ -43,6 +43,7 @@ public class PlayerController3D : MonoBehaviour
         Instance = this;
         playerHealth = GetComponent<PlayerHealth>();
         motor = GetComponent<PlayerMotor>();
+        feedback = GetComponent<PlayerFeedback>();
     }
 
     void Start()
@@ -65,7 +66,7 @@ public class PlayerController3D : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (!InHurtInvulnerability() && collision.gameObject.tag == "Enemy")
+        if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || collision.gameObject.tag == "Enemy"))
         {
             CollidedWithEnemy(collision.collider);
         }
@@ -78,19 +79,24 @@ public class PlayerController3D : MonoBehaviour
             AddScore(10);
             Destroy(other.gameObject);
         }
-        if (other.gameObject.tag == "Enemy")
-        {
-            AddScore(100);
-            Destroy(other.gameObject);
-        }
     }
     #endregion
 
     #region Public
     public void SteppedOnEnemy(Collider enemyCollider)
     {
+        //Debug.Log(" Stepped on enemy");
         motor.SteppedOnEnemy();
-        enemyCollider.GetComponent<EnemyController>()?.SteppedOnByPlayer();
+        AddScore(100);
+        try
+        {
+            enemyCollider.GetComponent<EnemyController3D>().SteppedOnByPlayer();
+
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e + ". Error, I think there is no component EnemyController on enemy object " + enemyCollider.gameObject.name);
+        }
     }
     #endregion
 
@@ -99,9 +105,7 @@ public class PlayerController3D : MonoBehaviour
     {
         if (motor.IsAboveTarget(enemYCollider))
         {
-            AddScore(100);
-            enemYCollider.gameObject.GetComponent<EnemyController>()?.SteppedOnByPlayer();
-            motor.SteppedOnEnemy();
+            SteppedOnEnemy(enemYCollider);
         }
         else
         {
