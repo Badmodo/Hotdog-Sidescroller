@@ -27,6 +27,7 @@ public class GrapplingHook : MonoBehaviour
     public float climbSpeed = 3f;
     private bool isColliding;
 
+    float cameraToMouseDistance;
 
     void Awake()
     {
@@ -35,13 +36,16 @@ public class GrapplingHook : MonoBehaviour
         playerPosition = transform.position;
         ropeHingeAnchorRb = ropeHingeAnchor.GetComponent<Rigidbody2D>();
         ropeHingeAnchorSprite = ropeHingeAnchor.GetComponent<SpriteRenderer>();
+
+        cameraToMouseDistance = transform.position.z - Camera.main.transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Captures the world position of the mouse using screentoworldpoint, and use this to create the aim angle 
-        var worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+        //var worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+        var worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraToMouseDistance));
         var facingDirection = worldMousePosition - transform.position;
         var aimAngle = Mathf.Atan2(facingDirection.y, facingDirection.x);
         if (aimAngle < 0f)
