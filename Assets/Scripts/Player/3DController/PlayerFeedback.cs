@@ -9,6 +9,8 @@ public class PlayerFeedback : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     Animator animator;
 
+
+
     //Cache
     Color colorHide = new Color(1, 1, 1, 0);
     #region MonoBehavior
@@ -18,6 +20,7 @@ public class PlayerFeedback : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -38,6 +41,17 @@ public class PlayerFeedback : MonoBehaviour
         {
             EnterDamageBlink(1f);
         }
+
+        if (moveX != 0)
+        {
+            GetComponent<Animator>().SetBool("IsWalking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsWalking", false);
+        }
+
+
     }
 
     #region Public

@@ -1,0 +1,396 @@
+fileFormatVersion: 2
+guid: f901c77daf91e2c4d9b7938235c77539
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5129480445693874851
+    second: HotDog_Body_Run2_0
+  - first:
+      213: -5122628001047796348
+    second: HotDog_Body_Run2_1
+  - first:
+      213: 7205572475086639600
+    second: HotDog_Body_Run2_2
+  - first:
+      213: 5565954967304455421
+    second: HotDog_Body_Run2_3
+  - first:
+      213: -4308707387314506544
+    second: HotDog_Body_Run2_4
+  - first:
+      213: 2621212917508231974
+    second: HotDog_Body_Run2_5
+  - first:
+      213: 7261092615700789934
+    second: HotDog_Body_Run2_6
+  - first:
+      213: 3288522232079191424
+    second: HotDog_Body_Run2_7
+  - first:
+      213: 3709129054600486082
+    second: HotDog_Body_Run2_8
+  - first:
+      213: 8085396685033869997
+    second: HotDog_Body_Run2_9
+  - first:
+      213: 5741541146370720299
+    second: HotDog_Body_Run2_10
+  - first:
+      213: 7899873462590243843
+    second: HotDog_Body_Run2_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 60
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1674
+        width: 412
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a255e7c9439f2740800000000000000
+      internalID: 5129480445693874851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_1
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1672
+        width: 414
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485a31159f4c8e8b0800000000000000
+      internalID: -5122628001047796348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_2
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1617
+        width: 283
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f11fd44df55ff360800000000000000
+      internalID: 7205572475086639600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_3
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 1617
+        width: 283
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4c0069d8e3e3d40800000000000000
+      internalID: 5565954967304455421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_4
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1167
+        width: 243
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d47402b5756434c0800000000000000
+      internalID: -4308707387314506544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1167
+        width: 243
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6235ebcb24b606420800000000000000
+      internalID: 2621212917508231974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_6
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1225
+        width: 369
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaabe08534594c460800000000000000
+      internalID: 7261092615700789934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_7
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 1225
+        width: 369
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d0e07fb8d23ad20800000000000000
+      internalID: 3288522232079191424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_8
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 728
+        width: 217
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ccda8d2939797330800000000000000
+      internalID: 3709129054600486082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_9
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 728
+        width: 217
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2909f5279153070800000000000000
+      internalID: 8085396685033869997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_10
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 719
+        width: 226
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2247bca04d0eaf40800000000000000
+      internalID: 5741541146370720299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HotDog_Body_Run2_11
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 719
+        width: 226
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3040a341f0df1ad60800000000000000
+      internalID: 7899873462590243843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

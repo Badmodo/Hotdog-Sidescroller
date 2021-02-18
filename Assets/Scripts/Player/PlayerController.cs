@@ -66,10 +66,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump(playerJumpPower);
         }
-
-        //physics
-        //one line of code that controls the player moving around
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     }
 
     void PlayerRaycast()
