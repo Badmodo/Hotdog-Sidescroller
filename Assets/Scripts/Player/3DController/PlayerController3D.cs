@@ -16,6 +16,7 @@ public class PlayerController3D : MonoBehaviour
 
     public static PlayerController3D Instance;
 
+
     //References
     PlayerHealth playerHealth;
     PlayerMotor motor;
@@ -27,6 +28,9 @@ public class PlayerController3D : MonoBehaviour
     public static int Score { get; private set; }
     float hurtInvulTimer = -1;
 
+    public Rigidbody playerRigidbody;
+    public Vector3 moveDirection;
+
     public void DamagePlayer()
     {
         if (!InHurtInvulnerability())
@@ -35,6 +39,29 @@ public class PlayerController3D : MonoBehaviour
             feedback.EnterDamageBlink(HurtInvulnerabilityDuration);
             playerHealth.TakeDamage();
         }
+    }
+
+    private void knockBack(GameObject target, Vector3 direction, float length, float overTime)
+    {
+        direction = direction.normalized;
+        StartCoroutine(knockBackCoroutine(target, direction, length, overTime));
+    }
+
+    IEnumerator knockBackCoroutine(GameObject target, Vector3 direction, float length, float overTime)
+    {
+        float timeleft = overTime;
+        while (timeleft > 0)
+        {
+
+            if (timeleft > Time.deltaTime)
+                target.transform.Translate(direction * Time.deltaTime / overTime * length);
+            else
+                target.transform.Translate(direction * timeleft / overTime * length);
+            timeleft -= Time.deltaTime;
+
+            yield return null;
+        }
+
     }
 
     #region MonoBehavior
@@ -102,7 +129,12 @@ public class PlayerController3D : MonoBehaviour
 
     #region Collision
     void CollidedWithEnemy(Collider enemYCollider)
-    {
+    { 
+        {
+            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
+            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
+        }
+
         if (motor.IsAboveTarget(enemYCollider))
         {
             SteppedOnEnemy(enemYCollider);
@@ -111,6 +143,8 @@ public class PlayerController3D : MonoBehaviour
         {
             DamagePlayer();
         }
+
+       
     }
     #endregion
 

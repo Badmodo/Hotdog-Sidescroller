@@ -75,10 +75,11 @@ public class PlayerMotor : MonoBehaviour
     {
         if (Falling)
             onGround = raycaster.OnGround;
+
         else
             onGround = false;
 
-        if (onGround)
+            if (onGround)
         {
             hasAirJump = true;
         }

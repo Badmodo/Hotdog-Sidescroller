@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerFeedback : MonoBehaviour
 {
     const float BlinkInterval = 0.1f;
+    public static bool IsJumping;
 
     //Reference
     [SerializeField] SpriteRenderer sr;
@@ -27,6 +28,13 @@ public class PlayerFeedback : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal");
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            IsJumping = true;
+        }
+        else IsJumping = false;
+        
+
         if (moveX > 0.1f)
         {
             FaceLeft(false);
@@ -41,7 +49,7 @@ public class PlayerFeedback : MonoBehaviour
         {
             EnterDamageBlink(1f);
         }
-
+       
         if (moveX != 0)
         {
             GetComponent<Animator>().SetBool("IsWalking", true);
@@ -49,6 +57,15 @@ public class PlayerFeedback : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetBool("IsWalking", false);
+        }
+
+        if (IsJumping == true)
+        {
+            GetComponent<Animator>().SetBool("IsJumping", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("IsJumping", false);
         }
 
 
