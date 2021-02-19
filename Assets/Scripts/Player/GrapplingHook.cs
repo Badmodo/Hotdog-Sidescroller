@@ -9,7 +9,7 @@ public class GrapplingHook : MonoBehaviour
     public DistanceJoint2D ropeJoint;
     public Transform crosshair;
     public SpriteRenderer crosshairSprite;
-    public PlayerController playerMovement;
+    public PlayerController3D playerMovement;
     private bool ropeAttached;
     private Vector2 playerPosition;
     private Rigidbody2D ropeHingeAnchorRb;
