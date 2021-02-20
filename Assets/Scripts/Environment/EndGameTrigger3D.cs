@@ -19,7 +19,7 @@ public class EndGameTrigger3D : MonoBehaviour
         if (!triggered && GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
             triggered = true;
-            uiManager.OpenScoreBoard(PlayerController3D.Score);
+            uiManager.OpenScoreBoard(PlayerController3D.FinalScore);
         }
     }
 }

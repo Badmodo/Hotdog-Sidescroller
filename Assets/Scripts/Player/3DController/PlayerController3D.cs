@@ -26,10 +26,12 @@ public class PlayerController3D : MonoBehaviour
     //Status
     float timeLeft = 120;
     public static int Score { get; private set; }
+    public static int FinalScore => Score + (int)Instance.timeLeft * 1;
     float hurtInvulTimer = -1;
 
     public Rigidbody playerRigidbody;
     public Vector3 moveDirection;
+
 
     public void DamagePlayer()
     {
