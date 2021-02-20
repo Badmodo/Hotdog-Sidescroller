@@ -6,6 +6,7 @@ public class TimeManager : MonoBehaviour
     public float slowDownFactor = 0.5f;
     public float slowConstantDuration = 0.5f;
     public float rampUpDuration = 2;
+    public GameObject PPSlowMo;
 
     private void Update()
     {
@@ -26,6 +27,8 @@ public class TimeManager : MonoBehaviour
     {
         InSlowMo = true;
 
+        PPSlowMo.SetActive(true);
+
         Time.timeScale = slowDownFactor;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
         yield return new WaitForSeconds(slowConstantDuration);
@@ -38,6 +41,7 @@ public class TimeManager : MonoBehaviour
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
         Time.timeScale = 1f;
+        PPSlowMo.SetActive(false);
         InSlowMo = false;
     }
 }
