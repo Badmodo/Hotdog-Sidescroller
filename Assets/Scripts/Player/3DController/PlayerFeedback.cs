@@ -17,23 +17,20 @@ public class PlayerFeedback : MonoBehaviour
     #region MonoBehavior
 
     #endregion
-
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+    void Start()
+    {
         player = PlayerController3D.Instance;
     }
+
+
 
     void Update()
     {
         float moveX = Input.GetAxis("Horizontal");
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            IsJumping = true;
-        }
-        else IsJumping = false;
-        
 
         if (moveX > 0.1f)
         {
@@ -43,43 +40,44 @@ public class PlayerFeedback : MonoBehaviour
         {
             FaceLeft(true);
         }
-
+        //if (moveX != 0)
+        //{
+        //    GetComponent<Animator>().SetBool("IsWalking", true);
+        //}
+        //else
+        //{
+        //    GetComponent<Animator>().SetBool("IsWalking", false);
+        //}
+        //SetitJesus();
         //Debug
         //if (Input.GetKeyDown(KeyCode.Y))
         //{
         //    EnterDamageBlink(1f);
         //}
-       
-        if (moveX != 0)
-        {
-            GetComponent<Animator>().SetBool("IsWalking", true);
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("IsWalking", false);
-        }
-
-        if (IsJumping == true)
-        {
-            GetComponent<Animator>().SetBool("IsJumping", true);
-            animator.SetFloat("VelY", player.Motor.CurrentVelocity.y);
-        }
-        else
-        {
-            GetComponent<Animator>().SetBool("IsJumping", false);
-        }
-
-
     }
 
-    #region Public - Animation
-    public void EnterJumpAnimation ()
-    {
+    #region Public - Animatior
 
+    public void SetWalkAnimation (bool isTrue)
+    {
+        //GetComponent<Animator>().SetBool("IsWalking", true);
+        animator.SetBool("IsWalking", isTrue);
+        //Debug.Log("SetWalkAnimation :" + isTrue);
+    }
+
+    public void SetJumpAnimation (bool isTrue)
+    {
+        animator.SetBool("IsJumping", isTrue);
+        //Debug.Log("SetJumpAnimation :" + isTrue);
+    }
+
+    public void SetVelocityY (float y)
+    {
+        animator.SetFloat("VelY", y);
     }
     #endregion
 
-    #region Public
+    #region Public - non-animatior related
     public void FaceLeft (bool facingLeft)
     {
         sr.flipX = facingLeft;

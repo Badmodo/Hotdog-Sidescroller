@@ -9,7 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHealth))]
 [RequireComponent(typeof(ScoreSystem))]
 [RequireComponent(typeof(PlayerMotor))]
-[RequireComponent(typeof(PlayerFeedback))]
 public class PlayerController3D : MonoBehaviour
 {
     const float HurtInvulnerabilityDuration = 1f;
@@ -32,7 +31,8 @@ public class PlayerController3D : MonoBehaviour
     float hurtInvulTimer = -1;
 
     public PlayerMotor Motor => motor;
-    
+    public PlayerFeedback Feedback => feedback;
+
 
 
     public void DamagePlayer()
@@ -74,7 +74,7 @@ public class PlayerController3D : MonoBehaviour
         Instance = this;
         playerHealth = GetComponent<PlayerHealth>();
         motor = GetComponent<PlayerMotor>();
-        feedback = GetComponent<PlayerFeedback>();
+        feedback = GetComponentInChildren<PlayerFeedback>();
     }
 
     void Start()

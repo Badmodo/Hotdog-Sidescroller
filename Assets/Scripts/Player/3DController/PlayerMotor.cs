@@ -18,15 +18,18 @@ public class PlayerMotor : MonoBehaviour
     Rigidbody rb;
     PlayerController3D player;
     Collider collider;
+    PlayerFeedback feedback;
+    PlayerRaycaster raycaster;
 
     //Status
-    bool hasAirJump = true;
-
     Vector2 targetVelocity = Vector2.zero;
     Vector2 currentVelocity = Vector2.zero;
+
     bool onGround;
-    public PlayerRaycaster raycaster { get; private set; }
-    public Vector2 CurrentVelocity => currentVelocity;
+    bool prev_OnGround;
+    bool hasAirJump = true;
+    bool isMoving;
+    bool prev_IsMoving;
     #region Mono
     void Awake()
     {
@@ -37,14 +40,19 @@ public class PlayerMotor : MonoBehaviour
         collider = GetComponent<Collider>();
     }
 
-    //void OnGUI()
-    //{
-    //    GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround);
-    //    GUI.Label(new Rect(20, 40, 200, 20), "rb.velocity = " + rb.velocity);
-    //    GUI.Label(new Rect(20, 60, 200, 20), "Falling = " + Falling);
-    //    GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity);
-    //    GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity);
-    //}
+    void Start()
+    {
+        feedback = player.Feedback;
+    }
+
+    void OnGUI()
+    {
+        //GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround);
+        //GUI.Label(new Rect(20, 40, 200, 20), "Y = " + rb.velocity.y.ToString("000"));
+        //GUI.Label(new Rect(20, 60, 200, 20), "Falling = " + Falling);
+        //GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity);
+        //GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity);
+    }
     #endregion
 
     #region Public 
@@ -61,6 +69,10 @@ public class PlayerMotor : MonoBehaviour
         DetectJumpCommand();
         CheckForEnemyBelowToStepOn();
         HorizontalMoveUpdate();
+
+        AnimationUpdate();
+        prev_OnGround = onGround;
+        prev_IsMoving = isMoving;
     }
 
     public void TickFixedUpdate()
@@ -69,17 +81,31 @@ public class PlayerMotor : MonoBehaviour
     }
     #endregion
 
-    #region OnGround
+    void AnimationUpdate ()
+    {
+        //set jump animation
+        if (prev_OnGround && !onGround)
+            feedback.SetJumpAnimation(true);
+        else if (!prev_OnGround && onGround)
+            feedback.SetJumpAnimation(false);
 
+        //Horizontal movement
+        if (prev_IsMoving && !isMoving)
+            feedback.SetWalkAnimation(false);
+        else if (!prev_IsMoving && isMoving)
+            feedback.SetWalkAnimation(true);
+
+        //feedback.SetitJesus();
+        //feedback.SetitJesus2();
+
+    }
+
+    #region OnGround
     void UpdateOnGroundStatus()
     {
-        if (Falling)
-            onGround = raycaster.OnGround;
+        onGround = NotMovingUp ? raycaster.OnGround : false;
 
-        else
-            onGround = false;
-
-            if (onGround)
+        if (onGround)
         {
             hasAirJump = true;
         }
@@ -95,6 +121,7 @@ public class PlayerMotor : MonoBehaviour
         else
         {
             targetVelocity.y -= gravity * Time.deltaTime;
+            feedback.SetVelocityY(targetVelocity.y);
         }
     }
     #endregion
@@ -114,13 +141,15 @@ public class PlayerMotor : MonoBehaviour
         {
             targetVelocity.x = 0f;
         }
+
+        isMoving = targetVelocity.x > 0.1f || targetVelocity.x < -0.1f;
     }
 
     void DetectJumpCommand()
     {
         if (PressedJump)
         {
-            if (Falling && onGround)
+            if (NotMovingUp && onGround)
             {
                 Jump(jumpPower);
             }
@@ -142,7 +171,7 @@ public class PlayerMotor : MonoBehaviour
     #region Interaction
     void CheckForEnemyBelowToStepOn()
     {
-        if (Falling)
+        if (NotMovingUp)
         {
             RaycastHit L;
             if (Physics.Raycast(raycaster.BL, Vector2.down, out L, 0.1f, enemyLayer))
@@ -169,6 +198,6 @@ public class PlayerMotor : MonoBehaviour
     #region Helpers
     bool PressedJump => (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
             || Input.GetKeyDown(KeyCode.UpArrow));
-    bool Falling => rb.velocity.y <= 0f;
+    bool NotMovingUp => rb.velocity.y <= 0f;
     #endregion
 }
