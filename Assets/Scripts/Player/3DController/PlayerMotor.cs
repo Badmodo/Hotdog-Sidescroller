@@ -26,7 +26,7 @@ public class PlayerMotor : MonoBehaviour
     Vector2 currentVelocity = Vector2.zero;
     bool onGround;
     public PlayerRaycaster raycaster { get; private set; }
-
+    public Vector2 CurrentVelocity => currentVelocity;
     #region Mono
     void Awake()
     {

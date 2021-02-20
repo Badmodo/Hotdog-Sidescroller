@@ -16,6 +16,8 @@ public class PlayerController3D : MonoBehaviour
 
     public static PlayerController3D Instance;
 
+    public Rigidbody playerRigidbody;
+    public Vector3 moveDirection;
 
     //References
     PlayerHealth playerHealth;
@@ -29,8 +31,8 @@ public class PlayerController3D : MonoBehaviour
     public static int FinalScore => Score + (int)Instance.timeLeft * 1;
     float hurtInvulTimer = -1;
 
-    public Rigidbody playerRigidbody;
-    public Vector3 moveDirection;
+    public PlayerMotor Motor => motor;
+    
 
 
     public void DamagePlayer()
