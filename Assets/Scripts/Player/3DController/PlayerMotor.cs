@@ -46,15 +46,15 @@ public class PlayerMotor : MonoBehaviour
         feedback = player.Feedback;
     }
 
-    void OnGUI()
-    {
-        GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround, gui);
-        GUI.Label(new Rect(20, 40, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
-        GUI.Label(new Rect(20, 60, 200, 20), "isJumping = " + isJumping, gui);
-        GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity, gui);
-        GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity, gui);
-        GUI.Label(new Rect(20, 120, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
-    }
+    //void OnGUI()
+    //{
+    //    GUI.Label(new Rect(20, 220, 200, 20), "On ground = " + onGround, gui);
+    //    GUI.Label(new Rect(20, 240, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
+    //    GUI.Label(new Rect(20, 260, 200, 20), "isJumping = " + isJumping, gui);
+    //    GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
+    //    GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
+    //    GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
+    //}
     #endregion
 
     #region Public 
