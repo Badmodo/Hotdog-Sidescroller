@@ -99,6 +99,7 @@ public class PlayerController3D : MonoBehaviour
     {
         if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || collision.gameObject.tag == "Enemy"))
         {
+            Debug.DrawLine(transform.position, collision.gameObject.transform.position, Color.red, 10f);
             CollidedWithEnemy(collision.collider);
         }
     }
@@ -134,17 +135,14 @@ public class PlayerController3D : MonoBehaviour
     #region Collision
     void CollidedWithEnemy(Collider enemYCollider)
     { 
-        {
-            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
-            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
-        }
-
         if (motor.IsAboveTarget(enemYCollider))
         {
             SteppedOnEnemy(enemYCollider);
         }
         else
         {
+            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
+            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
             DamagePlayer();
         }
 
