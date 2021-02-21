@@ -5,30 +5,32 @@ using UnityEngine;
 [DefaultExecutionOrder(-100)]
 public class PlayerRaycaster : MonoBehaviour
 {
+    const float RaycastDist = 0.15f;
+
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
-    Collider collider;
+
+    //Reference
+    private Collider collider;
 
     //Cache
-    Vector3 offsetTL;
-    Vector3 offsetTR;
-    Vector3 offsetBL;
-    Vector3 offsetBR;
+    private Vector3 offsetTL;
+    private Vector3 offsetTR;
+    private Vector3 offsetBL;
+    private Vector3 offsetBR;
+
+    private bool againstLeft;
+    private bool againstRight;
+    private bool onGround;
 
     public Vector3 BL { get; private set; }
     public Vector3 BR { get; private set; }
     public Vector3 TL { get; private set; }
     public Vector3 TR { get; private set; }
 
-    public bool AgainstLeft =>
-        Physics.Raycast(TL, Vector3.left, 0.1f, groundLayer) ||
-        Physics.Raycast(BL, Vector3.left, 0.1f, groundLayer);
-    public bool AgainstRight =>
-        Physics.Raycast(TR, Vector3.right, 0.1f, groundLayer) ||
-        Physics.Raycast(BR, Vector3.right, 0.1f, groundLayer);
-    public bool OnGround =>
-        Physics.Raycast(BL, Vector3.down, 0.1f, groundLayer) ||
-        Physics.Raycast(BR, Vector3.down, 0.1f, groundLayer);
+    public bool AgainstLeft => againstLeft;
+    public bool AgainstRight => againstRight;
+    public bool OnGround => onGround;
 
     #region MonoBehavior
     void Awake()
@@ -48,9 +50,32 @@ public class PlayerRaycaster : MonoBehaviour
 
     void Update()
     {
+        UpdateRaycastValues();
         UpdateOffsets();
     }
     #endregion
+
+    void UpdateRaycastValues()
+    {
+        againstLeft = 
+            Physics.Raycast(TL, Vector3.left, RaycastDist, groundLayer) ||
+            Physics.Raycast(BL, Vector3.left, RaycastDist, groundLayer);
+        againstRight =
+             Physics.Raycast(TR, Vector3.right, RaycastDist, groundLayer) ||
+             Physics.Raycast(BR, Vector3.right, RaycastDist, groundLayer);
+        onGround =
+             Physics.Raycast(BL, Vector3.down, RaycastDist, groundLayer) ||
+             Physics.Raycast(BR, Vector3.down, RaycastDist, groundLayer);
+
+        Debug.DrawRay(BL, Vector3.down * RaycastDist, Color.white);
+        Debug.DrawRay(BR, Vector3.down * RaycastDist, Color.white);
+
+        //if (!onGround)
+        //{
+        //    Debug.DrawRay(BL, Vector3.down * RaycastDist, Color.red, 10f);
+        //    Debug.DrawRay(BR, Vector3.down * RaycastDist, Color.green, 10f);
+        //}
+    }
 
     void UpdateOffsets()
     {

@@ -13,6 +13,7 @@ public class PlayerMotor : MonoBehaviour
     public float horizontalAcceleration = 40f;
 
     public LayerMask enemyLayer;
+    public GUIStyle gui;
 
     //Reference
     Rigidbody rb;
@@ -47,11 +48,12 @@ public class PlayerMotor : MonoBehaviour
 
     void OnGUI()
     {
-        //GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround);
-        //GUI.Label(new Rect(20, 40, 200, 20), "Y = " + rb.velocity.y.ToString("000"));
-        //GUI.Label(new Rect(20, 60, 200, 20), "Falling = " + Falling);
-        //GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity);
-        //GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity);
+        GUI.Label(new Rect(20, 20, 200, 20), "On ground = " + onGround, gui);
+        GUI.Label(new Rect(20, 40, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
+        GUI.Label(new Rect(20, 60, 200, 20), "isJumping = " + isJumping, gui);
+        GUI.Label(new Rect(20, 80, 200, 20), "currentVelocity = " + currentVelocity, gui);
+        GUI.Label(new Rect(20, 100, 200, 20), "targetVelocity = " + targetVelocity, gui);
+        GUI.Label(new Rect(20, 120, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
     }
     #endregion
 
@@ -103,7 +105,7 @@ public class PlayerMotor : MonoBehaviour
     #region OnGround
     void UpdateOnGroundStatus()
     {
-        onGround = NotMovingUp ? raycaster.OnGround : false;
+        onGround = !isJumping ? raycaster.OnGround : false;
 
         if (onGround)
         {
@@ -149,7 +151,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (PressedJump)
         {
-            if (NotMovingUp && onGround)
+            if (isJumping && onGround)
             {
                 Jump(jumpPower);
             }
@@ -171,7 +173,7 @@ public class PlayerMotor : MonoBehaviour
     #region Interaction
     void CheckForEnemyBelowToStepOn()
     {
-        if (NotMovingUp)
+        if (isJumping)
         {
             RaycastHit L;
             if (Physics.Raycast(raycaster.BL, Vector2.down, out L, 0.1f, enemyLayer))
@@ -198,6 +200,6 @@ public class PlayerMotor : MonoBehaviour
     #region Helpers
     bool PressedJump => (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
             || Input.GetKeyDown(KeyCode.UpArrow));
-    bool NotMovingUp => rb.velocity.y <= 0f;
+    bool isJumping => targetVelocity.y > .1f;
     #endregion
 }

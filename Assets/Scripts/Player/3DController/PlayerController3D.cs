@@ -99,6 +99,7 @@ public class PlayerController3D : MonoBehaviour
     {
         if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || collision.gameObject.tag == "Enemy"))
         {
+            Debug.DrawLine(transform.position, collision.gameObject.transform.position, Color.red, 10f);
             CollidedWithEnemy(collision.collider);
         }
     }
@@ -145,6 +146,8 @@ public class PlayerController3D : MonoBehaviour
         }
         else
         {
+
+            Debug.Log("player hurt by " + enemYCollider.name);
             DamagePlayer();
         }
 
