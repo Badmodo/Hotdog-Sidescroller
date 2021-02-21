@@ -13,15 +13,19 @@ public class PlayerRaycaster : MonoBehaviour
     //Reference
     private Collider collider;
 
+    //Status
+    private bool againstLeft;
+    private bool againstRight;
+    private bool onGround;
+    private bool prevOnGround;
+
     //Cache
     private Vector3 offsetTL;
     private Vector3 offsetTR;
     private Vector3 offsetBL;
     private Vector3 offsetBR;
 
-    private bool againstLeft;
-    private bool againstRight;
-    private bool onGround;
+    private float floatOnGroundOffset; 
 
     public Vector3 BL { get; private set; }
     public Vector3 BR { get; private set; }
@@ -33,11 +37,11 @@ public class PlayerRaycaster : MonoBehaviour
     public bool OnGround => onGround;
 
     #region MonoBehavior
-    void Awake()
+    private void Awake()
     {
         collider = GetComponent<Collider>();
     }
-    void Start()
+    private void Start()
     {
         //Initialize
         float extentX = collider.bounds.extents.x - 0.01f;
@@ -46,16 +50,19 @@ public class PlayerRaycaster : MonoBehaviour
         offsetBR = new Vector3(extentX, -extentY);
         offsetTL = new Vector3(-extentX, extentY);
         offsetTR = new Vector3(extentX, extentY);
+
+        floatOnGroundOffset = collider.bounds.extents.y + 0.1f;
     }
 
-    void Update()
+    private void Update()
     {
         UpdateRaycastValues();
         UpdateOffsets();
+        prevOnGround = onGround;
     }
     #endregion
 
-    void UpdateRaycastValues()
+    private void UpdateRaycastValues()
     {
         againstLeft = 
             Physics.Raycast(TL, Vector3.left, RaycastDist, groundLayer) ||
@@ -63,21 +70,42 @@ public class PlayerRaycaster : MonoBehaviour
         againstRight =
              Physics.Raycast(TR, Vector3.right, RaycastDist, groundLayer) ||
              Physics.Raycast(BR, Vector3.right, RaycastDist, groundLayer);
-        onGround =
-             Physics.Raycast(BL, Vector3.down, RaycastDist, groundLayer) ||
-             Physics.Raycast(BR, Vector3.down, RaycastDist, groundLayer);
 
-        Debug.DrawRay(BL, Vector3.down * RaycastDist, Color.white);
-        Debug.DrawRay(BR, Vector3.down * RaycastDist, Color.white);
-
-        //if (!onGround)
-        //{
-        //    Debug.DrawRay(BL, Vector3.down * RaycastDist, Color.red, 10f);
-        //    Debug.DrawRay(BR, Vector3.down * RaycastDist, Color.green, 10f);
-        //}
+        if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, RaycastDist, groundLayer))
+        {
+            OffsetPlayerAboveGround(hitL);
+            onGround = true;
+        }
+        else if (Physics.Raycast(BR, Vector3.down, out RaycastHit hitR, RaycastDist, groundLayer))
+        {
+            OffsetPlayerAboveGround(hitR);
+            onGround = true;
+        }
+        else
+        {
+            onGround = false;
+        }
     }
 
-    void UpdateOffsets()
+    private void OffsetPlayerAboveGround (RaycastHit hit)
+    {
+        //If the player just landed, then offset the player a distance from the ground,
+        //because we dont want the player stand flush against the ground as he could be obstructed by the discontinuous box colliders.
+        if (!prevOnGround) 
+        {
+            Vector3 p = transform.position;
+            p.y = hit.point.y + floatOnGroundOffset;
+            transform.position = p;
+        }
+        //Debug.Log("transform.position " + transform.position + 
+            //", hit.point.y " + hit.point.y + ", point.y + FloatOnGroundDist =  " + (hit.point.y + FloatOnGroundDist));
+        
+
+        //Debug.DrawRay(hit.point, Vector3.down, Color.cyan);
+
+    }
+
+    private void UpdateOffsets()
     {
         BL = transform.position + offsetBL;
         BR = transform.position + offsetBR;
