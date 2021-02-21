@@ -87,9 +87,15 @@ public class PlayerMotor : MonoBehaviour
     {
         //set jump animation
         if (prev_OnGround && !onGround)
+        {
             feedback.SetJumpAnimation(true);
+            SfxPlayer.instance.Play_PlayerJump();
+        }
         else if (!prev_OnGround && onGround)
+        {
             feedback.SetJumpAnimation(false);
+            SfxPlayer.instance.Play_PlayerWalk();
+        }
 
         //Horizontal movement
         if (prev_IsMoving && !isMoving)

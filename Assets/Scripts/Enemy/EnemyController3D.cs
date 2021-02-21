@@ -16,6 +16,7 @@ public class EnemyController3D : MonoBehaviour
 
     public void SteppedOnByPlayer ()
     {
+        SfxPlayer.instance.Play_EnemyHurt();
         Destroy(gameObject);
     }
 

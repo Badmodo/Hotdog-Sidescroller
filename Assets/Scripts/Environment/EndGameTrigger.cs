@@ -15,6 +15,8 @@ public class EndGameTrigger : MonoBehaviour
     {
         if (GameLayers.IsTargetOnPlayerLayer(collision.gameObject))
         {
+            SfxPlayer.instance.Play_GameWon();
+
             uiManager.OpenScoreBoard(ScoreSystem.score);
         }
     }

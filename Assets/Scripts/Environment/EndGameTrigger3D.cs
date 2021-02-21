@@ -19,6 +19,8 @@ public class EndGameTrigger3D : MonoBehaviour
         if (!triggered && GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
             triggered = true;
+            SfxPlayer.instance.Play_GameWon();
+
             uiManager.OpenScoreBoard(PlayerController3D.FinalScore);
         }
     }

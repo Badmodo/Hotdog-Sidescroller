@@ -41,6 +41,8 @@ public class PlayerController3D : MonoBehaviour
         {
             StartHurtInvulnerabilityTimer();
             feedback.EnterDamageBlink(HurtInvulnerabilityDuration);
+            SfxPlayer.instance.Play_PlayerHurt();
+
             playerHealth.TakeDamage();
         }
     }
@@ -134,7 +136,7 @@ public class PlayerController3D : MonoBehaviour
 
     #region Collision
     void CollidedWithEnemy(Collider enemYCollider)
-    { 
+    {
         if (motor.IsAboveTarget(enemYCollider))
         {
             SteppedOnEnemy(enemYCollider);
@@ -146,7 +148,7 @@ public class PlayerController3D : MonoBehaviour
             DamagePlayer();
         }
 
-       
+
     }
     #endregion
 
@@ -176,7 +178,7 @@ public class PlayerController3D : MonoBehaviour
     #endregion
 
     #region Timer
-    void TickTimer ()
+    void TickTimer()
     {
         timeLeft -= Time.deltaTime;
         uiManager.SetTime((int)timeLeft);
