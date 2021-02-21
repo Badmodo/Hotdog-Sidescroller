@@ -135,19 +135,14 @@ public class PlayerController3D : MonoBehaviour
     #region Collision
     void CollidedWithEnemy(Collider enemYCollider)
     { 
-        {
-            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
-            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
-        }
-
         if (motor.IsAboveTarget(enemYCollider))
         {
             SteppedOnEnemy(enemYCollider);
         }
         else
         {
-
-            Debug.Log("player hurt by " + enemYCollider.name);
+            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
+            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
             DamagePlayer();
         }
 
