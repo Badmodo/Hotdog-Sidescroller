@@ -46,15 +46,15 @@ public class PlayerMotor : MonoBehaviour
         feedback = player.Feedback;
     }
 
-    //void OnGUI()
-    //{
-    //    GUI.Label(new Rect(20, 220, 200, 20), "On ground = " + onGround, gui);
-    //    GUI.Label(new Rect(20, 240, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
-    //    GUI.Label(new Rect(20, 260, 200, 20), "isJumping = " + isJumping, gui);
-    //    GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
-    //    GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
-    //    GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
-    //}
+    void OnGUI()
+    {
+        GUI.Label(new Rect(20, 220, 200, 20), "On ground = " + onGround, gui);
+        GUI.Label(new Rect(20, 240, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
+        GUI.Label(new Rect(20, 260, 200, 20), "hasAirJump = " + hasAirJump, gui);
+        GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
+        GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
+        GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
+    }
     #endregion
 
     #region Public 
@@ -151,7 +151,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (PressedJump)
         {
-            if (isJumping && onGround)
+            if (!isJumping && onGround)
             {
                 Jump(jumpPower);
             }
@@ -173,7 +173,7 @@ public class PlayerMotor : MonoBehaviour
     #region Interaction
     void CheckForEnemyBelowToStepOn()
     {
-        if (isJumping)
+        if (!isJumping)
         {
             RaycastHit L;
             if (Physics.Raycast(raycaster.BL, Vector2.down, out L, 0.1f, enemyLayer))
