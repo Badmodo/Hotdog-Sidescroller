@@ -5,6 +5,7 @@ public class PlayerFeedback : MonoBehaviour
 {
     const float BlinkInterval = 0.1f;
     public static bool IsJumping;
+    public static bool FacingRight;
 
     //Reference
     [SerializeField] SpriteRenderer sr;
@@ -81,6 +82,7 @@ public class PlayerFeedback : MonoBehaviour
     public void FaceLeft (bool facingLeft)
     {
         sr.flipX = facingLeft;
+        FacingRight = !facingLeft;
     }
 
     public void EnterDamageBlink (float duration) => StartCoroutine(HurtBlink(duration));
