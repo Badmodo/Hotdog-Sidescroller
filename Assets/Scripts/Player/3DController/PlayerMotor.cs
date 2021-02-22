@@ -31,6 +31,10 @@ public class PlayerMotor : MonoBehaviour
     bool hasAirJump = true;
     bool isMoving;
     bool prev_IsMoving;
+
+    public ParticleSystem footsteps;
+    private ParticleSystem.EmissionModule footEmission;
+
     #region Mono
     void Awake()
     {
@@ -44,6 +48,20 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         feedback = player.Feedback;
+        footEmission = footsteps.emission;
+    }
+
+    private void Update()
+    {
+        // show footstep effects
+        if(Input.GetAxisRaw("Horizontal") != 0)
+        {
+            footEmission.rateOverTime = 30;
+        }
+        else
+        {
+            footEmission.rateOverTime = 0;
+        }
     }
 
     //void OnGUI()
