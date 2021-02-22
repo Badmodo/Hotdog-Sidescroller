@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PlayerMove();
+        //PlayerMove();
         PlayerRaycast();
         PlayerAnimationUpdate();
     }
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     #region Jump
     void Jump(float jumpForce)
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
+        //GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
         isGrounded = false;
     }
     #endregion

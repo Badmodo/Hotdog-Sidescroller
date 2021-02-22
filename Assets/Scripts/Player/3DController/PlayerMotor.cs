@@ -167,6 +167,12 @@ public class PlayerMotor : MonoBehaviour
                 Jump(jumpPower);
             }
         }
+
+        if (isJumping && ReleasedJumpButton)
+        {
+            targetVelocity.y = targetVelocity.y * 0.5f;
+            //targetVelocity.y = 0f;
+        }
     }
 
     void ExecuteVelocity()
@@ -206,6 +212,9 @@ public class PlayerMotor : MonoBehaviour
     #region Helpers
     bool PressedJump => (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
             || Input.GetKeyDown(KeyCode.UpArrow));
+
+    bool ReleasedJumpButton => (Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.W)
+            || Input.GetKeyUp(KeyCode.UpArrow));
     bool isJumping => targetVelocity.y > .1f;
     #endregion
 }
