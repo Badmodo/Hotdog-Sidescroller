@@ -33,7 +33,8 @@ public class PlayerController3D : MonoBehaviour
     public PlayerMotor Motor => motor;
     public PlayerFeedback Feedback => feedback;
 
-
+    public Transform camTarget;
+    public float aheadAmount, aheadSpeed;
 
     public void DamagePlayer()
     {
@@ -70,6 +71,9 @@ public class PlayerController3D : MonoBehaviour
 
     }
 
+
+
+
     #region MonoBehavior
     void Awake()
     {
@@ -90,6 +94,12 @@ public class PlayerController3D : MonoBehaviour
         motor.TickUpdate();
 
         TickTimer();
+
+        // SSet the postitoin of the camTarget GameObject
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            camTarget.localPosition = new Vector3(camTarget.transform.position.x + aheadAmount * Input.GetAxisRaw("Horizontal"), camTarget.localPosition.y, camTarget.localPosition.z);
+        }
     }
 
     void FixedUpdate()
@@ -119,6 +129,7 @@ public class PlayerController3D : MonoBehaviour
     #region Public
     public void SteppedOnEnemy(Collider enemyCollider)
     {
+
         //Debug.Log(" Stepped on enemy");
         motor.SteppedOnEnemy();
         AddScore(100);

@@ -8,7 +8,8 @@ public class CameraController3D : MonoBehaviour
     public float yMin;
     public float yMax;
 
-    [SerializeField] PlayerController3D player;
+    [SerializeField] //PlayerController3D player;
+    GameObject player;
     float startingZ;
 
     void Start()
