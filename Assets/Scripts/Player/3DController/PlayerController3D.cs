@@ -14,7 +14,6 @@ public class PlayerController3D : MonoBehaviour
     const float HurtInvulnerabilityDuration = 1f;
 
     public static PlayerController3D Instance;
-    public static bool FacingRight;
 
     public Rigidbody playerRigidbody;
     public Vector3 moveDirection;
