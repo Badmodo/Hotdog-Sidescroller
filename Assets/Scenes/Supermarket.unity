@@ -969,9 +969,10 @@ GameObject:
   - component: {fileID: 239876733}
   - component: {fileID: 239876731}
   - component: {fileID: 239876734}
+  - component: {fileID: 239876735}
   m_Layer: 0
   m_Name: '#UIManager'
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,6 +1038,20 @@ MonoBehaviour:
   HealthIcon: {fileID: 21300000, guid: 148449cd30561b14ca60a9457e841a7e, type: 3}
   timeLeft: {fileID: 187774900}
   score: {fileID: 1633920888}
+--- !u!114 &239876735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239876730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9e146d486911741a6335e4fa454864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kills_UI: {fileID: 891890172}
+  Kills_Counts: 0
 --- !u!1 &280839313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1067,7 @@ GameObject:
   - component: {fileID: 280839314}
   m_Layer: 8
   m_Name: Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6405,7 +6420,7 @@ GameObject:
   - component: {fileID: 1203467444}
   m_Layer: 8
   m_Name: Enemy (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8934,7 +8949,7 @@ GameObject:
   - component: {fileID: 1527487308}
   m_Layer: 8
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9152,7 +9167,7 @@ GameObject:
   - component: {fileID: 1535972865}
   m_Layer: 8
   m_Name: Enemy A
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

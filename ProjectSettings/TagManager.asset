@@ -9,6 +9,8 @@ TagManager:
   - ItemBox
   - Coin
   - LevelEnd
+  - FxTemporaire
+  - GameManager
   layers:
   - Default
   - TransparentFX
