@@ -23,7 +23,8 @@ public class PlayerController3D : MonoBehaviour
     PlayerMotor motor;
     PlayerFeedback feedback;
     UIManager uiManager;
-
+    ObjectPoolTypeB pool;
+   
     //Status
     float timeLeft = 120;
     public static int Score { get; private set; }
@@ -43,7 +44,7 @@ public class PlayerController3D : MonoBehaviour
             feedback.EnterDamageBlink(HurtInvulnerabilityDuration);
             SfxPlayer.instance.Play_PlayerHurt();
 
-            playerHealth.TakeDamage();
+            playerHealth.TakeDamage(); 
         }
     }
 
@@ -83,6 +84,7 @@ public class PlayerController3D : MonoBehaviour
     {
         uiManager = UIManager.Instance;
         uiManager.SetScore(Score);
+        pool = ObjectPoolTypeB.Instance;
     }
 
     void Update()
@@ -121,6 +123,7 @@ public class PlayerController3D : MonoBehaviour
     {
 
         //Debug.Log(" Stepped on enemy");
+        DieParticle(enemyCollider.transform.position);
         motor.SteppedOnEnemy();
         AddScore(100);
         try
@@ -132,6 +135,11 @@ public class PlayerController3D : MonoBehaviour
         {
             Debug.Log(e + ". Error, I think there is no component EnemyController on enemy object " + enemyCollider.gameObject.name);
         }
+    }
+        
+    void DieParticle(Vector3 particlePosition)
+    {
+        pool.Spawn(particlePosition);
     }
     #endregion
 

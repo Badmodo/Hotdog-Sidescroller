@@ -35,6 +35,9 @@ public class PlayerMotor : MonoBehaviour
     public ParticleSystem footsteps;
     private ParticleSystem.EmissionModule footEmission;
 
+    public ParticleSystem impactEffect;
+    private bool wasOnGround;
+
     #region Mono
     void Awake()
     {
@@ -62,6 +65,16 @@ public class PlayerMotor : MonoBehaviour
         {
             footEmission.rateOverTime = 0;
         }
+
+        // Show ground impact effect
+        if(!wasOnGround && onGround)
+        {
+            impactEffect.gameObject.SetActive(true);
+            impactEffect.Stop();
+            impactEffect.transform.position = footsteps.transform.position;
+            impactEffect.Play();
+        }
+        wasOnGround = onGround;
     }
 
     //void OnGUI()

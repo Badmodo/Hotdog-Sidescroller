@@ -58,10 +58,3 @@ public class ObjectPoolTypeB : MonoBehaviour
     }
 }
 
-//GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(); 
-//if (bullet != null)
-//{
-//    bullet.transform.position = turret.transform.position;
-//    bullet.transform.rotation = turret.transform.rotation;
-//    bullet.SetActive(true);
-//}

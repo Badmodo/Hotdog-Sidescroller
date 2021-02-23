@@ -11,7 +11,7 @@ public class PlayerFeedback : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     Animator animator;
     PlayerController3D player;
-
+    
 
     //Cache
     Color colorHide = new Color(1, 1, 1, 0);
