@@ -54,7 +54,7 @@ public class PlayerMotor : MonoBehaviour
     private void Update()
     {
         // show footstep effects
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        if(Input.GetAxisRaw("Horizontal") != 0 && onGround == true)
         {
             footEmission.rateOverTime = 30;
         }

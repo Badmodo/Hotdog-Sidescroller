@@ -3607,18 +3607,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 132365358}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &134015462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1214255438767213736, guid: 1a98b1ff07691424cb10ee94ed526ca9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1094584041}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302213074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a710efbe7b1f1c9469483a5250476419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &144561837
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,6 +7318,12 @@ Transform:
 --- !u!1 &302213074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3637887281875078840, guid: 1a98b1ff07691424cb10ee94ed526ca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094584041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &302213083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3637887281875078845, guid: 1a98b1ff07691424cb10ee94ed526ca9,
     type: 3}
   m_PrefabInstance: {fileID: 1094584041}
   m_PrefabAsset: {fileID: 0}
@@ -13782,7 +13776,9 @@ MonoBehaviour:
   xMax: 2000
   yMin: 0
   yMax: 9.9
-  player: {fileID: 134015462}
+  player: {fileID: 302213083}
+  offsetAmount: {x: 3, y: 1}
+  offsetSpeed: {x: 2, y: 4}
 --- !u!1 &556138244
 GameObject:
   m_ObjectHideFlags: 0
