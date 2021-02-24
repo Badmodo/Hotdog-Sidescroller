@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Freezer.unity
-    guid: 9a110ad9eecb20c49b50e09319c93074
+    path: Assets/Scenes/Claire's/Main Menu.unity
+    guid: 6c07eec2a4788a2498fe66f5f15cc60d
   - enabled: 1
-    path: Assets/Scenes/CharacterSelect.unity
-    guid: f4d16c4a9987d7e448c662ccf9414f62
+    path: Assets/Scenes/Supermarket.unity
+    guid: 8becb24e065826b4fbfd78d957f4831e
   - enabled: 1
-    path: Assets/Scenes/Prototype 1.unity
-    guid: bf02422e55602d948b490673ded79c21
+    path: Assets/Scenes/Freezer2.unity
+    guid: f779e5b6960a6de4f83e6d32e57a1255
+  - enabled: 1
+    path: Assets/Scenes/JumpHeav.unity
+    guid: d5f4f7ea8bc6f63409f78636e6aa668a
   m_configObjects: {}
