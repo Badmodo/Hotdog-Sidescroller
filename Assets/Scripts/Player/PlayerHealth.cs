@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     private const int MaxHealth = 3; //A const type ensure this variable can never by modified.
     private int health;
 
+    public GameObject YouDied;
+
     UIManager uiManager;
 
 
@@ -21,6 +23,14 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             uiManager.SetHealth(health);
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Boss")
+        {
+            Die();
         }
     }
 
@@ -46,7 +56,13 @@ public class PlayerHealth : MonoBehaviour
 
     void Die ()
     {
-        //SceneManager.LoadScene("Prototype 1");
+        StartCoroutine(youDied());
+    }
+    
+    IEnumerator youDied()
+    {
+        YouDied.SetActive(true);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - LevelEnd
   - FxTemporaire
   - GameManager
+  - Boss
   layers:
   - Default
   - TransparentFX
