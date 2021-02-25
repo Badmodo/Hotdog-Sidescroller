@@ -10,6 +10,13 @@ public class BossMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed);
+        StartCoroutine(StopMovement());
+    }
+
+    IEnumerator StopMovement()
+    {
+        yield return new WaitForSeconds(19f);
+        GetComponent<BossMovement>().enabled = false;
     }
 }
 

@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator youDied()
     {
         YouDied.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -10,7 +10,6 @@ public class BossHealthBar : MonoBehaviour
     float maxHealth = 100f;
     public static float health;
 
-    // Start is called before the first frame update
     void Start()
     {
         healthBar = GetComponent<Image>();
@@ -18,32 +17,20 @@ public class BossHealthBar : MonoBehaviour
         StartCoroutine(WaitToSpawn());
     }
 
-    // Update is called once per frame
     void Update()
     {
         healthBar.fillAmount = health / maxHealth;    
     }
     IEnumerator WaitToSpawn()
     {
-        yield return new WaitForSeconds(5);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
+        yield return new WaitForSeconds(4f);
+        BossHealthBar.health -= 30f;
+
         yield return new WaitForSeconds(5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
-        BossHealthBar.health -= 10f;
-        yield return new WaitForSeconds(0.5f);
+        BossHealthBar.health -= 30f;
+
+        yield return new WaitForSeconds(9f);
+        BossHealthBar.health -= 30f;
     }
 }
 
