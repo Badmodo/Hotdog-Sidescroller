@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - GameManager
   - Boss
+  - FallingPlatform
   layers:
   - Default
   - TransparentFX
