@@ -156,8 +156,6 @@ public class PlayerController3D : MonoBehaviour
             playerRigidbody.AddForce(moveDirection.normalized * 10000f);
             DamagePlayer();
         }
-
-
     }
     #endregion
 

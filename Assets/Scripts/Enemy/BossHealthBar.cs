@@ -9,6 +9,7 @@ public class BossHealthBar : MonoBehaviour
     Image healthBar;
     float maxHealth = 100f;
     public static float health;
+    public GameObject EvilHotdog;
 
     void Start()
     {
@@ -29,8 +30,12 @@ public class BossHealthBar : MonoBehaviour
         yield return new WaitForSeconds(5f);
         BossHealthBar.health -= 30f;
 
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(10f);
         BossHealthBar.health -= 30f;
+
+        EvilHotdog.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        EvilHotdog.GetComponent<Animator>().enabled = true;
     }
 }
 

@@ -7,7 +7,6 @@ public class Activator : MonoBehaviour
     public GameObject ToBeActivated;
     public int delay  = 1;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Trigger_CR());
@@ -17,7 +16,6 @@ public class Activator : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ToBeActivated.SetActive(true);
-
     }
 
 }
