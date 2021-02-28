@@ -9,6 +9,8 @@ public class Lvl1Intro : MonoBehaviour
     public GameObject Image3;
     public GameObject Image4;
     public GameObject Image5;
+    public GameObject Image6;
+    public GameObject Image7;
 
     public GameObject Text1;
     public GameObject Text2;
@@ -72,7 +74,7 @@ public class Lvl1Intro : MonoBehaviour
 
         Text4.SetActive(false);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
 
         Text5.SetActive(true);
 
@@ -80,6 +82,17 @@ public class Lvl1Intro : MonoBehaviour
 
         Text5.SetActive(false);
 
+        yield return new WaitForSeconds(1);
 
+        Image6.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        Image6.SetActive(false);
+        Image7.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        Image7.SetActive(false);
     }
 }
