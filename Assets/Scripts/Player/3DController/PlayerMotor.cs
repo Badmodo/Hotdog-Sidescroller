@@ -12,6 +12,9 @@ public class PlayerMotor : MonoBehaviour
     public int gravity = 250;
     public float horizontalAcceleration = 40f;
 
+    public float hangTime = .2f;
+    private float hangCounter;
+
     public LayerMask enemyLayer;
     public GUIStyle gui;
 
@@ -75,6 +78,16 @@ public class PlayerMotor : MonoBehaviour
             impactEffect.Play();
         }
         wasOnGround = onGround;
+
+        //gives kyote time
+        if (onGround)
+        {
+            hangCounter = hangTime;
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+        }
     }
 
     //void OnGUI()
@@ -184,11 +197,14 @@ public class PlayerMotor : MonoBehaviour
         isMoving = targetVelocity.x > 0.1f || targetVelocity.x < -0.1f;
     }
 
+
+
     void DetectJumpCommand()
     {
         if (PressedJump)
         {
-            if (!isJumping && onGround)
+            //implamentation of kyote time
+            if (!isJumping && hangCounter > 0f) 
             {
                 Jump(jumpPower);
             }
