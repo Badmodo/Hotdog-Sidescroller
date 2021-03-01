@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8491654443791015795}
   - component: {fileID: 521868668369895413}
   - component: {fileID: 4876499393890221341}
-  - component: {fileID: 7139558628864584574}
   m_Layer: 8
   m_Name: BulletMustardHorizontal
   m_TagString: Untagged
@@ -128,15 +127,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 8491654443791015795}
---- !u!114 &7139558628864584574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196726809225972711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1752d8571681384f96cee20cc5109d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

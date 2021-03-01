@@ -17,7 +17,7 @@ public class ObjectPoolManager : MonoBehaviour
     {
         Instance = this;
         pool_Particle = new ObjectPoolTypeB(pf_Particle);
-        //pool_B = new ObjectPoolTypeB(pf_B);
+        pool_B = new ObjectPoolTypeB(pf_B);
         //pool_C = new ObjectPoolTypeB(pf_C);
     }
 
