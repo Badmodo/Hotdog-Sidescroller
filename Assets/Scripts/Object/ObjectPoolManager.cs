@@ -23,6 +23,6 @@ public class ObjectPoolManager : MonoBehaviour
 
     public void SpawnParticle (Vector3 pos)
     {
-        pool_Particle.Spawn(pos);
+        //pool_Particle.Spawn(pos);
     }
 }
