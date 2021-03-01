@@ -6,17 +6,14 @@ using UnityEngine;
 
 public class ObjectPoolTypeB : MonoBehaviour
 {
-    public static ObjectPoolTypeB Instance;
-
-    public GameObject pf;
+    GameObject pf;
 
     List<GameObject> actives = new List<GameObject>();
     List<GameObject> pool = new List<GameObject>();
 
-
-    void Awake()
+    public ObjectPoolTypeB(GameObject pf)
     {
-        Instance = this;
+        this.pf = pf;
     }
 
     public GameObject Spawn (Vector3 spawnPos)

@@ -23,7 +23,7 @@ public class PlayerController3D : MonoBehaviour
     PlayerMotor motor;
     PlayerFeedback feedback;
     UIManager uiManager;
-    ObjectPoolTypeB pool;
+    ObjectPoolManager poolManager;
    
     //Status
     float timeLeft = 120;
@@ -84,7 +84,7 @@ public class PlayerController3D : MonoBehaviour
     {
         uiManager = UIManager.Instance;
         uiManager.SetScore(Score);
-        pool = ObjectPoolTypeB.Instance;
+        poolManager = ObjectPoolManager.Instance;
     }
 
     void Update()
@@ -139,7 +139,7 @@ public class PlayerController3D : MonoBehaviour
         
     void DieParticle(Vector3 particlePosition)
     {
-        pool.Spawn(particlePosition);
+        poolManager.SpawnParticle(particlePosition);
     }
     #endregion
 
