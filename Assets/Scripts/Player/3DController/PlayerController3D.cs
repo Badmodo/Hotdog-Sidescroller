@@ -118,26 +118,58 @@ public class PlayerController3D : MonoBehaviour
     }
     #endregion
 
-    #region Public
+    #region Enemy COllision
     public void SteppedOnEnemy(Collider enemyCollider)
     {
-
-        //Debug.Log(" Stepped on enemy");
         DieParticle(enemyCollider.transform.position);
-        Debug.Log("PArtucke");
         motor.SteppedOnEnemy();
         AddScore(100);
-        try
+        //Debug.Log("" + enemyCollider);
+        EnemyBodyBase enemy = enemyCollider.GetComponent<EnemyBodyBase>();
+        Debug.Log("A - " + enemy);
+        if (enemy != null)
         {
-            enemyCollider.GetComponent<EnemyController3D>().SteppedOnByPlayer();
+            Debug.Log("B - " + enemy);
+            if (enemy.canKilledByJumpingOnThem)
+            {
+                SteppedOnEnemy_BasicEnemy(enemy);
+            }
+        }
 
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log(e + ". Error, I think there is no component EnemyController on enemy object " + enemyCollider.gameObject.name);
-        }
+        //try
+        //{
+        //    //Debug.Log("" + enemyCollider);
+        //    EnemyBodyBase enemy = enemyCollider.GetComponent<EnemyBodyBase>();
+        //    Debug.Log("A - " + enemy);
+        //    if (enemy != null)
+        //    {
+        //        Debug.Log("B - " + enemy);
+        //        switch (enemy.EnemyType)
+        //        {
+        //            case EnemyTypes.EnemyType1:
+        //            default:
+        //                SteppedOnEnemy_BasicEnemy(enemy);
+        //                break;
+        //        }
+        //    }
+        //}
+        //catch (System.Exception e)
+        //{
+        //    Debug.Log(e.Message);
+        //    //Debug.Log(e.Message + ". Ignore for now. You might've steeping on an enemy bullet. Ideallyer there are 2 layers - enenmy body and " +
+        //    //    "enemy bullet.But doing that right now will break other scenes. After adding those layers and assigning them to enemy perfabs, go to GameLayers and set up the layer collision checks.");
+        //    //Debug.Log(e + ". Error, I think there is no component EnemyController on enemy object " + enemyCollider.gameObject.name);
+        ////}
     }
-        
+
+    void SteppedOnEnemy_BasicEnemy (EnemyBodyBase enemy)
+    {
+        enemy.SteppedOnByPlayer();
+    }
+    #endregion
+
+    #region Public
+
     void DieParticle(Vector3 particlePosition)
     {
         poolManager.SpawnEnemyDeathParticle(particlePosition, Quaternion.identity);
