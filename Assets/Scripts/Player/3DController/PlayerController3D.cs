@@ -124,6 +124,7 @@ public class PlayerController3D : MonoBehaviour
 
         //Debug.Log(" Stepped on enemy");
         DieParticle(enemyCollider.transform.position);
+        Debug.Log("PArtucke");
         motor.SteppedOnEnemy();
         AddScore(100);
         try
@@ -139,7 +140,7 @@ public class PlayerController3D : MonoBehaviour
         
     void DieParticle(Vector3 particlePosition)
     {
-        poolManager.SpawnParticle(particlePosition);
+        poolManager.SpawnEnemyDeathParticle(particlePosition, Quaternion.identity);
     }
     #endregion
 

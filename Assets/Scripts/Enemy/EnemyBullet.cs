@@ -14,7 +14,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-                
+        Debug.Log("public hits something");
     }
 
 }

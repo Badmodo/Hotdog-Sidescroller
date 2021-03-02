@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2313217597878417297}
   - component: {fileID: 2313217597878417309}
   - component: {fileID: 2117087231046631691}
+  - component: {fileID: 6969797868119756285}
   m_Layer: 0
   m_Name: BulletMustardBounce
   m_TagString: Untagged
@@ -141,3 +142,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rb: {fileID: 2313217597878417297}
+--- !u!114 &6969797868119756285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313217597878417303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01a8c50e4b7c4b49a94ddaba11523dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

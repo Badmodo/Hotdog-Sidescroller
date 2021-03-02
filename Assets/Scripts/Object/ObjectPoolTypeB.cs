@@ -4,19 +4,21 @@ using UnityEngine;
 
 
 
-public class ObjectPoolTypeB : MonoBehaviour
+public class ObjectPoolTypeB
 {
     GameObject pf;
+    Transform parent;
 
     List<GameObject> actives = new List<GameObject>();
     List<GameObject> pool = new List<GameObject>();
 
-    public ObjectPoolTypeB(GameObject pf)
+    public ObjectPoolTypeB(GameObject pf, Transform parent)
     {
         this.pf = pf;
+        this.parent = parent;
     }
 
-    public GameObject Spawn (Vector3 spawnPos)
+    public GameObject Spawn (Vector3 spawnPos, Quaternion rotation)
     {
         GameObject go;
         if (pool.Count > 0)
@@ -31,13 +33,15 @@ public class ObjectPoolTypeB : MonoBehaviour
         else
         {
             //Create new
-            go = Instantiate(pf, spawnPos, Quaternion.identity, transform);
+            go = MonoBehaviour.Instantiate(pf, spawnPos, rotation, parent);
             go.transform.position = spawnPos;
             go.GetComponent<IPoolable>().InitialSpawn(this);
             actives.Add(go);
         }
         return go;
     }
+
+
 
     public void ReturnToPool (GameObject go)
     {

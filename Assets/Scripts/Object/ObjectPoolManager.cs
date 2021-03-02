@@ -6,23 +6,35 @@ public class ObjectPoolManager : MonoBehaviour
     public static ObjectPoolManager Instance;
 
     public GameObject pf_Particle;
-    public GameObject pf_B;
+    public GameObject pf_Bullet;
     public GameObject pf_C;
 
     ObjectPoolTypeB pool_Particle;
-    ObjectPoolTypeB pool_B;
+    ObjectPoolTypeB pool_Bullet;
     ObjectPoolTypeB pool_C;
 
     private void Awake()
     {
         Instance = this;
-        pool_Particle = new ObjectPoolTypeB(pf_Particle);
-        pool_B = new ObjectPoolTypeB(pf_B);
+        pool_Particle = new ObjectPoolTypeB(pf_Particle, transform);
+        pool_Bullet = new ObjectPoolTypeB(pf_Bullet, transform);
         //pool_C = new ObjectPoolTypeB(pf_C);
     }
 
-    public void SpawnParticle (Vector3 pos)
+    public void SpawnEnemyDeathParticle (Vector3 pos, Quaternion rotation)
     {
-        //pool_Particle.Spawn(pos);
+        pool_Particle.Spawn(pos, rotation);
+
+    } public void SpawnBullet (Vector3 pos, Quaternion rotation)
+    {
+        pool_Bullet.Spawn(pos, rotation);
     }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        SpawnEnemyDeathParticle(Vector3.zero);
+    //    }
+    //}
 }
