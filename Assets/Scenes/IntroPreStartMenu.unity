@@ -466,6 +466,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Two small bites.
       objectReference: {fileID: 0}
+    - target: {fileID: 7165660584136352631, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d290a6f892ea2046a762f54e5a92481,
+        type: 2}
+    - target: {fileID: 7165660584136352631, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7165660584230120502, guid: 1bf0c5bcb3a2db8449d7338721035abf,
         type: 3}
       propertyPath: m_IsActive
@@ -476,10 +487,32 @@ PrefabInstance:
       propertyPath: m_text
       value: Thats all it took.
       objectReference: {fileID: 0}
+    - target: {fileID: 7165660584503675736, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d290a6f892ea2046a762f54e5a92481,
+        type: 2}
+    - target: {fileID: 7165660584503675736, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7165660584515453126, guid: 1bf0c5bcb3a2db8449d7338721035abf,
         type: 3}
       propertyPath: m_text
       value: EVERYTHING HAS CHANGED!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165660584515453126, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d290a6f892ea2046a762f54e5a92481,
+        type: 2}
+    - target: {fileID: 7165660584515453126, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7165660584611079627, guid: 1bf0c5bcb3a2db8449d7338721035abf,
         type: 3}
@@ -495,6 +528,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: One moment would change these Hotdogs lives for ever.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165660585008310778, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d290a6f892ea2046a762f54e5a92481,
+        type: 2}
+    - target: {fileID: 7165660585008310778, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7165660585090519000, guid: 1bf0c5bcb3a2db8449d7338721035abf,
         type: 3}
@@ -620,6 +664,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: One Moment can change everything.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165660585894939705, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d290a6f892ea2046a762f54e5a92481,
+        type: 2}
+    - target: {fileID: 7165660585894939705, guid: 1bf0c5bcb3a2db8449d7338721035abf,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7165660585894939711, guid: 1bf0c5bcb3a2db8449d7338721035abf,
         type: 3}

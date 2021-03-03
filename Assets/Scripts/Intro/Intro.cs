@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Intro : MonoBehaviour
 {
@@ -78,7 +80,7 @@ public class Intro : MonoBehaviour
 
         Text5.SetActive(false);
 
-        
+        SceneManager.LoadScene("Main Menu");
     }
 
 

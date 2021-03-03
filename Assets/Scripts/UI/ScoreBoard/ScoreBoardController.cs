@@ -8,11 +8,13 @@ public class ScoreBoardController : MonoBehaviour
     [SerializeField] GameObject scoreScreenGroup;
     [SerializeField] Text highscoreText;
 
-    float scoreTickDurtion = 2f; 
+    float scoreTickDurtion = 2f;
+    private int nextLevel;
 
     public void GoToNextLevel ()
     {
-        LevelLoader.LoadGameplayLevel();
+        // LevelLoader.LoadGameplayLevel();
+        SceneManager.LoadScene(nextLevel);
     }
 
     public void OpenScoreBoard(int score)
@@ -35,6 +37,7 @@ public class ScoreBoardController : MonoBehaviour
     void Awake()
     {
         CloseScoreBoard();
+        nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     IEnumerator PlayScoreTickingAnimation(int highScore)

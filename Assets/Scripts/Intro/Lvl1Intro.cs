@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Lvl1Intro : MonoBehaviour
 {
@@ -94,5 +96,7 @@ public class Lvl1Intro : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         Image7.SetActive(false);
+
+        SceneManager.LoadScene("JumpHeav");
     }
 }
