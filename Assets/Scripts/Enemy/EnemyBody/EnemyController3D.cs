@@ -35,12 +35,12 @@ public class EnemyController3D : EnemyBodyBase
     void WallhitDetection ()
     {
         Vector2 checkDir = new Vector2(moveDir, 0);
-        if (Physics.Raycast(transform.position, checkDir,  out RaycastHit hit, 0.6f))
+        if (Physics.Raycast(transform.position, checkDir,  out RaycastHit hit, 0.8f))
         {
             if (GameLayers.IsTargetOnEnemyLayer(hit.collider.gameObject) || GameLayers.IsTargetOnGroundLayer(hit.collider.gameObject))
             Flip();
         }
-        Debug.DrawRay(transform.position, checkDir * 0.6f, Color.red);
+        Debug.DrawRay(transform.position, checkDir * 0.8f, Color.red);
     }
 
    

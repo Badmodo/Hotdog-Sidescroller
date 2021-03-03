@@ -4,7 +4,14 @@ using UnityEngine;
 public class PossiblyBounceBulletShooterEnemy : EnemyBodyBase
 {
     public Transform firePoint;
-    public float delay = 1.5f;
+    public float delay = 2.5f;
+    Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
 
     protected override void Start()
     {
@@ -21,7 +28,12 @@ public class PossiblyBounceBulletShooterEnemy : EnemyBodyBase
     {
         yield return new WaitForSeconds(delay);
         //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
+
+        //slow enemy down to 0 speed while firing
+        animator.SetBool("OnAttack", true);
         MustardBounceBullet(firePoint.position);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("OnAttack", false);
         StartCoroutine(FireDelay());
     }
 
