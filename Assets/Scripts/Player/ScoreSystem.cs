@@ -32,7 +32,7 @@ public class ScoreSystem : MonoBehaviour
         uiManager.SetTime((int)timeLeft);
         if (timeLeft < 0.1f)
         {
-            LevelLoader.LoadGameplayLevel();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
