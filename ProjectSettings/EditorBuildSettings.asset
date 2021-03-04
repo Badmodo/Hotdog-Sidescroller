@@ -6,15 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/IntroPreStartMenu.unity
+    guid: 505d459bfd7c3b64fa48df7a8f469913
+  - enabled: 1
     path: Assets/Scenes/Claire's/Main Menu.unity
     guid: 6c07eec2a4788a2498fe66f5f15cc60d
   - enabled: 1
-    path: Assets/Scenes/Supermarket.unity
-    guid: 8becb24e065826b4fbfd78d957f4831e
+    path: Assets/Scenes/IntroPreLevel1.unity
+    guid: b88478fba76f08a4ab0b8371921affb9
+  - enabled: 1
+    path: Assets/Scenes/JumpHeav.unity
+    guid: d5f4f7ea8bc6f63409f78636e6aa668a
   - enabled: 1
     path: Assets/Scenes/Freezer2.unity
     guid: f779e5b6960a6de4f83e6d32e57a1255
   - enabled: 1
-    path: Assets/Scenes/JumpHeav.unity
-    guid: d5f4f7ea8bc6f63409f78636e6aa668a
+    path: Assets/Scenes/Supermarket.unity
+    guid: 8becb24e065826b4fbfd78d957f4831e
   m_configObjects: {}

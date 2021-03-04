@@ -9572,7 +9572,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8545682, z: 1}
+  m_Size: {x: 1, y: 1.84568, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &3637887281875078847
 Animator:
@@ -9621,6 +9621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a712b8e5e79fd4faaeee0e67afb261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YouDied: {fileID: 0}
 --- !u!114 &3637887281875078844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9650,6 +9651,7 @@ MonoBehaviour:
   jumpPower: 1200
   gravity: 4000
   horizontalAcceleration: 30
+  hangTime: 0.2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
