@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 9c750eb9567e2bd45875895611533350
+guid: 7e2700d1c476b7846bc209e47159db68
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8376843914533863466
-    second: WholegrainMustard_Shoot_Projectile_0
+      213: 9079418501805134064
+    second: MustardBottle_Attack_ProjectileV2_0
   - first:
-      213: 3934878016314298820
-    second: WholegrainMustard_Shoot_Projectile_2
+      213: -601648549093954051
+    second: MustardBottle_Attack_ProjectileV2_2
   - first:
-      213: -5473230997370303645
-    second: WholegrainMustard_Shoot_Projectile_4
+      213: -1775106865304972208
+    second: MustardBottle_Attack_ProjectileV2_4
   - first:
-      213: 3182931631980150851
-    second: WholegrainMustard_Shoot_Projectile_6
+      213: 1400072092716834962
+    second: MustardBottle_Attack_ProjectileV2_6
   - first:
-      213: -4412839867710519756
-    second: WholegrainMustard_Shoot_Projectile_8
+      213: -146785699727895370
+    second: MustardBottle_Attack_ProjectileV2_8
   - first:
-      213: 364995472380179016
-    second: WholegrainMustard_Shoot_Projectile_10
+      213: 2569001881308884020
+    second: MustardBottle_Attack_ProjectileV2_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_0
+      name: MustardBottle_Attack_ProjectileV2_0
       rect:
         serializedVersion: 2
         x: 5
-        y: 179
-        width: 205
+        y: 923
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -123,19 +123,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a200fa86827804470800000000000000
-      internalID: 8376843914533863466
+      spriteID: 0f05437c503900e70800000000000000
+      internalID: 9079418501805134064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_2
+      name: MustardBottle_Attack_ProjectileV2_2
       rect:
         serializedVersion: 2
         x: 232
-        y: 179
-        width: 205
+        y: 923
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,19 +144,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c158ec35be7b9630800000000000000
-      internalID: 3934878016314298820
+      spriteID: dfd20af05d386a7f0800000000000000
+      internalID: -601648549093954051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_4
+      name: MustardBottle_Attack_ProjectileV2_4
       rect:
         serializedVersion: 2
         x: 5
-        y: 103
-        width: 205
+        y: 847
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,19 +165,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36b0614086d2b04b0800000000000000
-      internalID: -5473230997370303645
+      spriteID: 054d32ff5bd8d57e0800000000000000
+      internalID: -1775106865304972208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_6
+      name: MustardBottle_Attack_ProjectileV2_6
       rect:
         serializedVersion: 2
         x: 232
-        y: 103
-        width: 205
+        y: 847
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -186,19 +186,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3400884947b0c2c20800000000000000
-      internalID: 3182931631980150851
+      spriteID: 2902352862e0e6310800000000000000
+      internalID: 1400072092716834962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_8
+      name: MustardBottle_Attack_ProjectileV2_8
       rect:
         serializedVersion: 2
         x: 5
-        y: 26
-        width: 205
+        y: 770
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -207,19 +207,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 436ce62458172c2c0800000000000000
-      internalID: -4412839867710519756
+      spriteID: 6b49c9d0f2386fdf0800000000000000
+      internalID: -146785699727895370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WholegrainMustard_Shoot_Projectile_10
+      name: MustardBottle_Attack_ProjectileV2_10
       rect:
         serializedVersion: 2
         x: 232
-        y: 26
-        width: 205
+        y: 770
+        width: 226
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 842b8d3c279b01500800000000000000
-      internalID: 364995472380179016
+      spriteID: 43ce9b2999de6a320800000000000000
+      internalID: 2569001881308884020
       vertices: []
       indices: 
       edges: []

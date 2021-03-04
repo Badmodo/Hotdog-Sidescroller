@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Freezer2.unity
     guid: f779e5b6960a6de4f83e6d32e57a1255
   - enabled: 1
+    path: Assets/Scenes/ProtoypeLevels/FreezerLevel3.unity
+    guid: 1b2f92e26e38b0241b91ecf167de27ea
+  - enabled: 1
+    path: Assets/Scenes/ProtoypeLevels/FreezerLevel4.unity
+    guid: d58f99c8cce84ef489660b8c1481fbe2
+  - enabled: 1
     path: Assets/Scenes/Supermarket.unity
     guid: 8becb24e065826b4fbfd78d957f4831e
   m_configObjects: {}
