@@ -18,9 +18,8 @@ public class Tutorials : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)
-                || Input.GetKeyDown(KeyCode.UpArrow))
-        {
+        if (Input.GetKeyDown("e"))
+        {            
             Time.timeScale = 1;
             JumpTutorial.SetActive(false);
             MovingWalkwaysTutorial.SetActive(false);
@@ -45,7 +44,7 @@ public class Tutorials : MonoBehaviour
 
         if (other.gameObject.tag == "ScoreSystem")
         {
-            TacticalJumpTutorial.SetActive(true);
+            ScoreSystemTutorial.SetActive(true);
             Time.timeScale = 0;
         }
     }

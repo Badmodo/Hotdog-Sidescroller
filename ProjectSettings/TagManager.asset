@@ -14,6 +14,8 @@ TagManager:
   - Boss
   - FallingPlatform
   - MovingWalkways
+  - TacticalJump
+  - ScoreSystem
   layers:
   - Default
   - TransparentFX
