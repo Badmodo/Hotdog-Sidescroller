@@ -5,9 +5,9 @@ using UnityEngine;
 public class Tutorials : MonoBehaviour
 {
     public GameObject JumpTutorial;
-    public GameObject MovingWalkways;
-
-
+    public GameObject MovingWalkwaysTutorial;
+    public GameObject TacticalJumpTutorial;
+    public GameObject ScoreSystemTutorial;
 
 
     void Start()
@@ -23,7 +23,9 @@ public class Tutorials : MonoBehaviour
         {
             Time.timeScale = 1;
             JumpTutorial.SetActive(false);
-            MovingWalkways.SetActive(false);
+            MovingWalkwaysTutorial.SetActive(false);
+            TacticalJumpTutorial.SetActive(false);
+            ScoreSystemTutorial.SetActive(false);
         }
     }
 
@@ -31,7 +33,19 @@ public class Tutorials : MonoBehaviour
     {
         if (other.gameObject.tag == "MovingWalkways")
         {
-            MovingWalkways.SetActive(true);
+            MovingWalkwaysTutorial.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (other.gameObject.tag == "TacticalJump")
+        {
+            TacticalJumpTutorial.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (other.gameObject.tag == "ScoreSystem")
+        {
+            TacticalJumpTutorial.SetActive(true);
             Time.timeScale = 0;
         }
     }
