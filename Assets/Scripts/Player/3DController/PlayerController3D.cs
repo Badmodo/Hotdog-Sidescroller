@@ -48,6 +48,8 @@ public class PlayerController3D : MonoBehaviour
         }
     }
 
+    public void SetSteppedOnMovingPlatform(bool isOn) => motor.SetSteppedOnMovingPlatform(isOn);
+
     private void knockBack(GameObject target, Vector3 direction, float length, float overTime)
     {
         direction = direction.normalized;

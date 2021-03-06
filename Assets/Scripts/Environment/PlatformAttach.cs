@@ -10,6 +10,7 @@ public class PlatformAttach : MonoBehaviour
         {
             //other.transform.parent = transform;
             other.transform.SetParent(transform);
+            other.GetComponent<PlayerController3D>().SetSteppedOnMovingPlatform(true);
         }
     }
 
@@ -19,6 +20,7 @@ public class PlatformAttach : MonoBehaviour
         {
             //other.transform.parent = null;
             other.transform.SetParent(null);
+            other.GetComponent<PlayerController3D>().SetSteppedOnMovingPlatform(false);
         }
     }
 }

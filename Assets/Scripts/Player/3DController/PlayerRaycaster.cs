@@ -36,6 +36,7 @@ public class PlayerRaycaster : MonoBehaviour
     public bool AgainstLeft => againstLeft;
     public bool AgainstRight => againstRight;
     public bool OnGround => onGround;
+    private bool onMovingPlatform;
 
     #region MonoBehavior
     private void Awake()
@@ -56,16 +57,24 @@ public class PlayerRaycaster : MonoBehaviour
 
         floatOnGroundOffset = bodyHeight + 0.1f;
     }
-
-    private void Update()
-    {
-        UpdateRaycastValues();
-        UpdateOffsets();
-        prevOnGround = onGround;
-    }
     #endregion
 
-    private void UpdateRaycastValues()
+    public void UpdateRaycastOrigins()
+    {
+        BL = transform.position + offsetBL;
+        BR = transform.position + offsetBR;
+        TL = transform.position + offsetTL;
+        TR = transform.position + offsetTR;
+
+        Debug.DrawRay(BL, Vector3.left * WallRaycastDist, Color.yellow);
+        Debug.DrawRay(BR, Vector3.right * WallRaycastDist, Color.green);
+        Debug.DrawRay(TL, Vector3.left * WallRaycastDist, Color.red);
+        Debug.DrawRay(TR, Vector3.right * WallRaycastDist, Color.blue);
+        Debug.DrawRay(BL, Vector3.down * GroundRaycastDist, Color.cyan);
+        Debug.DrawRay(BR, Vector3.down * GroundRaycastDist, Color.magenta);
+    }
+
+    public void RaycastCheckWalls ()
     {
         //Wall
         againstLeft =
@@ -74,6 +83,12 @@ public class PlayerRaycaster : MonoBehaviour
         againstRight =
              Physics.Raycast(TR, Vector3.right, WallRaycastDist, groundLayer) ||
              Physics.Raycast(BR, Vector3.right, WallRaycastDist, groundLayer);
+    }
+
+    public void RaycastCheckGround()
+    {
+        if (onMovingPlatform)
+            return;
 
         //Floor
         if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, GroundRaycastDist, groundLayer))
@@ -94,6 +109,33 @@ public class PlayerRaycaster : MonoBehaviour
         }
     }
 
+    public void CachePrevValue ()
+    {
+        prevOnGround = onGround;
+    }
+
+    public void SetSteppedOnMovingPlatform(bool isOn)
+    {
+        onMovingPlatform = isOn;
+        if (onMovingPlatform)
+        {
+            onGround = true;
+
+            //Raycast down to stick to platform
+            if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, 1f, groundLayer))
+            {
+                if (IsTargetMovingPlatform(hitL.collider))
+                    OffsetPlayerAboveGround(hitL);
+            }
+            else if (Physics.Raycast(BR, Vector3.down, out RaycastHit hitR, 1f, groundLayer))
+            {
+                if (IsTargetMovingPlatform(hitR.collider))
+                    OffsetPlayerAboveGround(hitR);
+            }
+        }
+
+    }
+
     private void OffsetPlayerAboveGround(RaycastHit hit)
     {
         //If the player has just landed, then offset the player a distance from the ground,
@@ -105,21 +147,6 @@ public class PlayerRaycaster : MonoBehaviour
             p.y = hit.point.y + floatOnGroundOffset;
             transform.position = p;
         }
-    }
-
-    private void UpdateOffsets()
-    {
-        BL = transform.position + offsetBL;
-        BR = transform.position + offsetBR;
-        TL = transform.position + offsetTL;
-        TR = transform.position + offsetTR;
-
-        Debug.DrawRay(BL, Vector3.left * WallRaycastDist, Color.yellow);
-        Debug.DrawRay(BR, Vector3.right * WallRaycastDist, Color.green);
-        Debug.DrawRay(TL, Vector3.left * WallRaycastDist, Color.red);
-        Debug.DrawRay(TR, Vector3.right * WallRaycastDist, Color.blue);
-        Debug.DrawRay(BL, Vector3.down * GroundRaycastDist, Color.cyan);
-        Debug.DrawRay(BR, Vector3.down * GroundRaycastDist, Color.magenta);
     }
 
     private bool IsTargetMovingPlatform(Collider col) => col.GetComponent<MovingPlatform>() != null;

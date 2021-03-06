@@ -40,6 +40,7 @@ public class PlayerMotor : MonoBehaviour
 
     public ParticleSystem impactEffect;
     private bool wasOnGround;
+    private bool onMovingPlatform;
 
     #region Mono
     void Awake()
@@ -98,6 +99,7 @@ public class PlayerMotor : MonoBehaviour
         GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
         GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
         GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
+        GUI.Label(new Rect(20, 340, 200, 20), "onMovingPlatform = " + onMovingPlatform, gui);
     }
     #endregion
 
@@ -108,8 +110,23 @@ public class PlayerMotor : MonoBehaviour
         Jump(jumpPower);
     }
 
+    public void SetSteppedOnMovingPlatform(bool isOn)
+    {
+        onMovingPlatform = isOn;
+        raycaster.SetSteppedOnMovingPlatform(isOn);
+
+        
+
+    }
+
     public void TickUpdate()
     {
+        raycaster.UpdateRaycastOrigins();
+        raycaster.RaycastCheckWalls();
+        if (!onMovingPlatform)
+            raycaster.RaycastCheckGround();
+
+
         UpdateOnGroundStatus();
         ApplyGravity();
         DetectJumpCommand();
@@ -213,6 +230,8 @@ public class PlayerMotor : MonoBehaviour
                 hasAirJump = false;
                 Jump(jumpPower);
             }
+
+            onMovingPlatform = false;
         }
 
         if (isJumping && ReleasedJumpButton)
