@@ -15,7 +15,7 @@ public class MovingPlatform : MonoBehaviour
 		origPoint = transform.position;
 	}
 
-	public void Update()
+	public void FixedUpdate()
 	{
 		if (!reached)
 		{
@@ -45,6 +45,6 @@ public class MovingPlatform : MonoBehaviour
 
 	void move(Vector3 pos, Vector3 towards)
 	{
-		transform.position = Vector3.MoveTowards(pos, towards, Speed);
+		transform.position = Vector3.MoveTowards(pos, towards, Speed * Time.deltaTime * 150f);
 	}
 }
