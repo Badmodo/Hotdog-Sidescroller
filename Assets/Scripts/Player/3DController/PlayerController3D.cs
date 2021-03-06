@@ -113,6 +113,7 @@ public class PlayerController3D : MonoBehaviour
         if (other.gameObject.tag == "Coin")
         {
             AddScore(10);
+            SfxPlayer.instance.Play_CoinPickup();
             Destroy(other.gameObject);
         }
     }

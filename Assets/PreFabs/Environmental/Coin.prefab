@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4179249108069626400
 Transform:
   m_ObjectHideFlags: 0
@@ -4796,7 +4796,7 @@ GameObject:
   - component: {fileID: 4179249108691898288}
   - component: {fileID: 4179249108691898291}
   m_Layer: 0
-  m_Name: Coin (4)
+  m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
