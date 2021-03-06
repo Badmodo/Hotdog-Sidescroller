@@ -54,6 +54,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 2181091023
+    locked: 0
+  - name: MG
+    uniqueID: 1502526765
+    locked: 0
   - name: Sprite_Character
     uniqueID: 4242308361
+    locked: 0
+  - name: FG
+    uniqueID: 335066963
     locked: 0
