@@ -5,7 +5,8 @@ using UnityEngine;
 [DefaultExecutionOrder(-100)]
 public class PlayerRaycaster : MonoBehaviour
 {
-    const float RaycastDist = 0.15f;
+    const float WallRaycastDist = 0.1f;
+    const float GroundRaycastDist = 0.25f;
 
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
@@ -43,15 +44,17 @@ public class PlayerRaycaster : MonoBehaviour
     }
     private void Start()
     {
+        float bodyHeight = collider.bounds.extents.y;
+
         //Initialize
         float extentX = collider.bounds.extents.x - 0.01f;
-        float extentY = collider.bounds.extents.y - 0.01f;
-        offsetBL = new Vector3(-extentX, -extentY);
-        offsetBR = new Vector3(extentX, -extentY);
+        float extentY = bodyHeight - 0.01f;
+        offsetBL = new Vector3(-extentX, -extentY + 0.1f);
+        offsetBR = new Vector3(extentX, -extentY + 0.1f);
         offsetTL = new Vector3(-extentX, extentY);
         offsetTR = new Vector3(extentX, extentY);
 
-        floatOnGroundOffset = collider.bounds.extents.y + 0.1f;
+        floatOnGroundOffset = bodyHeight + 0.1f;
     }
 
     private void Update()
@@ -64,20 +67,22 @@ public class PlayerRaycaster : MonoBehaviour
 
     private void UpdateRaycastValues()
     {
+        //Wall
         againstLeft =
-            Physics.Raycast(TL, Vector3.left, RaycastDist, groundLayer) ||
-            Physics.Raycast(BL, Vector3.left, RaycastDist, groundLayer);
+            Physics.Raycast(TL, Vector3.left, WallRaycastDist, groundLayer) ||
+            Physics.Raycast(BL, Vector3.left, WallRaycastDist, groundLayer);
         againstRight =
-             Physics.Raycast(TR, Vector3.right, RaycastDist, groundLayer) ||
-             Physics.Raycast(BR, Vector3.right, RaycastDist, groundLayer);
+             Physics.Raycast(TR, Vector3.right, WallRaycastDist, groundLayer) ||
+             Physics.Raycast(BR, Vector3.right, WallRaycastDist, groundLayer);
 
-        if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, RaycastDist, groundLayer))
+        //Floor
+        if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, GroundRaycastDist, groundLayer))
         {
             if (!IsTargetMovingPlatform(hitL.collider))
                 OffsetPlayerAboveGround(hitL);
             onGround = true;
         }
-        else if (Physics.Raycast(BR, Vector3.down, out RaycastHit hitR, RaycastDist, groundLayer))
+        else if (Physics.Raycast(BR, Vector3.down, out RaycastHit hitR, GroundRaycastDist, groundLayer))
         {
             if (!IsTargetMovingPlatform(hitR.collider))
                 OffsetPlayerAboveGround(hitR);
@@ -109,10 +114,12 @@ public class PlayerRaycaster : MonoBehaviour
         TL = transform.position + offsetTL;
         TR = transform.position + offsetTR;
 
-        Debug.DrawRay(BL, Vector3.left * 0.1f, Color.yellow);
-        Debug.DrawRay(BR, Vector3.right * 0.1f, Color.green);
-        Debug.DrawRay(TL, Vector3.left * 0.1f, Color.red);
-        Debug.DrawRay(TR, Vector3.right * 0.1f, Color.blue);
+        Debug.DrawRay(BL, Vector3.left * WallRaycastDist, Color.yellow);
+        Debug.DrawRay(BR, Vector3.right * WallRaycastDist, Color.green);
+        Debug.DrawRay(TL, Vector3.left * WallRaycastDist, Color.red);
+        Debug.DrawRay(TR, Vector3.right * WallRaycastDist, Color.blue);
+        Debug.DrawRay(BL, Vector3.down * GroundRaycastDist, Color.cyan);
+        Debug.DrawRay(BR, Vector3.down * GroundRaycastDist, Color.magenta);
     }
 
     private bool IsTargetMovingPlatform(Collider col) => col.GetComponent<MovingPlatform>() != null;

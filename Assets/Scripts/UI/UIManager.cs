@@ -27,8 +27,12 @@ public class UIManager : MonoBehaviour
     IEnumerator TitleActivator()
     {
         yield return new WaitForSeconds(1f);
-        LevelTitle.SetActive(true);
-        Time.timeScale = 0;
+        if (LevelTitle != null)
+        {
+            LevelTitle.SetActive(true);
+            Time.timeScale = 0;
+        }
+        
     }
 
     void Awake()

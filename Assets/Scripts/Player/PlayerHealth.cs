@@ -52,6 +52,12 @@ public class PlayerHealth : MonoBehaviour
         {
             Die ();
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            health = Mathf.Clamp(health + 1, 0, 3);
+            uiManager.SetHealth(health);
+        }
     }
 
     void Die ()

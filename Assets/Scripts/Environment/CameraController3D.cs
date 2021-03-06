@@ -9,8 +9,8 @@ public class CameraController3D : MonoBehaviour
     public float yMax = 9.9f;
 
     [SerializeField] Transform player;
-    [SerializeField] Vector2 maxOffset = new Vector2(3f, 2f);
-    [SerializeField] Vector2 offsetSpeed = new Vector2(2f, 4f);
+     Vector2 maxOffset = new Vector2(3f, 3f);
+    Vector2 offsetSpeed = new Vector2(2f, 6f);
 
     //Status
     Vector3 targetPosition;

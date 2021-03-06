@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlatformAttach : MonoBehaviour
 {
-    public GameObject Player;
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == Player)
+        if (GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
-            Player.transform.parent = transform;
+            //other.transform.parent = transform;
+            other.transform.SetParent(transform);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == Player)
+        if (GameLayers.IsTargetOnPlayerLayer(other.gameObject))
         {
-            Player.transform.parent = null;
+            //other.transform.parent = null;
+            other.transform.SetParent(null);
         }
     }
 }
