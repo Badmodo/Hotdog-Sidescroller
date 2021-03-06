@@ -23779,7 +23779,7 @@ PrefabInstance:
         type: 3}
       propertyPath: YouDied
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1541909881}
     - target: {fileID: 3637887281875078840, guid: 1a98b1ff07691424cb10ee94ed526ca9,
         type: 3}
       propertyPath: m_Name
@@ -35246,6 +35246,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3421004241941881271, guid: 4801fd0bc608af34b8b29a54db318c12,
+        type: 3}
+      propertyPath: sfx_CoinPickup
+      value: 
+      objectReference: {fileID: 121654164970767593, guid: fb5caec54ba2ad6468c3670aaa571435,
+        type: 3}
     - target: {fileID: 3421004242104015798, guid: 4801fd0bc608af34b8b29a54db318c12,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -35381,6 +35387,12 @@ PrefabInstance:
 --- !u!224 &1541909880 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3421004241578568842, guid: 4801fd0bc608af34b8b29a54db318c12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1541909879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1541909881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3421004241623476282, guid: 4801fd0bc608af34b8b29a54db318c12,
     type: 3}
   m_PrefabInstance: {fileID: 1541909879}
   m_PrefabAsset: {fileID: 0}
