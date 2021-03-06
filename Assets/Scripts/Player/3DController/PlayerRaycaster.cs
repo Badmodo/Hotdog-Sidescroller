@@ -25,7 +25,7 @@ public class PlayerRaycaster : MonoBehaviour
     private Vector3 offsetBL;
     private Vector3 offsetBR;
 
-    private float floatOnGroundOffset; 
+    private float floatOnGroundOffset;
 
     public Vector3 BL { get; private set; }
     public Vector3 BR { get; private set; }
@@ -64,7 +64,7 @@ public class PlayerRaycaster : MonoBehaviour
 
     private void UpdateRaycastValues()
     {
-        againstLeft = 
+        againstLeft =
             Physics.Raycast(TL, Vector3.left, RaycastDist, groundLayer) ||
             Physics.Raycast(BL, Vector3.left, RaycastDist, groundLayer);
         againstRight =
@@ -73,12 +73,14 @@ public class PlayerRaycaster : MonoBehaviour
 
         if (Physics.Raycast(BL, Vector3.down, out RaycastHit hitL, RaycastDist, groundLayer))
         {
-            OffsetPlayerAboveGround(hitL);
+            if (!IsTargetMovingPlatform(hitL.collider))
+                OffsetPlayerAboveGround(hitL);
             onGround = true;
         }
         else if (Physics.Raycast(BR, Vector3.down, out RaycastHit hitR, RaycastDist, groundLayer))
         {
-            OffsetPlayerAboveGround(hitR);
+            if (!IsTargetMovingPlatform(hitR.collider))
+                OffsetPlayerAboveGround(hitR);
             onGround = true;
         }
         else
@@ -87,22 +89,17 @@ public class PlayerRaycaster : MonoBehaviour
         }
     }
 
-    private void OffsetPlayerAboveGround (RaycastHit hit)
+    private void OffsetPlayerAboveGround(RaycastHit hit)
     {
-        //If the player just landed, then offset the player a distance from the ground,
-        //because we dont want the player stand flush against the ground as he could be obstructed by the discontinuous box colliders.
-        if (!prevOnGround) 
+        //If the player has just landed, then offset the player a distance from the ground,
+        //because we dont want the player stand flush against the ground as he could be obstructed by the 
+        //discontinuous box colliders of the ice blocks.
+        if (!prevOnGround)
         {
             Vector3 p = transform.position;
             p.y = hit.point.y + floatOnGroundOffset;
             transform.position = p;
         }
-        //Debug.Log("transform.position " + transform.position + 
-            //", hit.point.y " + hit.point.y + ", point.y + FloatOnGroundDist =  " + (hit.point.y + FloatOnGroundDist));
-        
-
-        //Debug.DrawRay(hit.point, Vector3.down, Color.cyan);
-
     }
 
     private void UpdateOffsets()
@@ -117,4 +114,6 @@ public class PlayerRaycaster : MonoBehaviour
         Debug.DrawRay(TL, Vector3.left * 0.1f, Color.red);
         Debug.DrawRay(TR, Vector3.right * 0.1f, Color.blue);
     }
+
+    private bool IsTargetMovingPlatform(Collider col) => col.GetComponent<MovingPlatform>() != null;
 }

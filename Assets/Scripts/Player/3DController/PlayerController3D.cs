@@ -101,7 +101,8 @@ public class PlayerController3D : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || collision.gameObject.tag == "Enemy"))
+        if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || 
+            collision.gameObject.tag == "Enemy"))
         {
             Debug.DrawLine(transform.position, collision.gameObject.transform.position, Color.red, 10f);
             CollidedWithEnemy(collision.collider);
@@ -113,7 +114,14 @@ public class PlayerController3D : MonoBehaviour
         if (other.gameObject.tag == "Coin")
         {
             AddScore(10);
-            SfxPlayer.instance.Play_CoinPickup();
+            if (SfxPlayer.instance != null)
+            {
+                Debug.Log("Sfx player is not placed inside the level");
+            }
+            else
+            {
+                SfxPlayer.instance.Play_CoinPickup();
+            }
             Destroy(other.gameObject);
         }
     }

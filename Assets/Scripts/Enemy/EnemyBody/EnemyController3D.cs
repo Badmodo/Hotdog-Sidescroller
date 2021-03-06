@@ -42,7 +42,6 @@ public class EnemyController3D : EnemyBodyBase
         }
         Debug.DrawRay(transform.position, checkDir * 0.8f, Color.red);
     }
-
    
     void Flip ()
     {

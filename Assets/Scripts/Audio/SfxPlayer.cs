@@ -26,6 +26,6 @@ public class SfxPlayer : MonoBehaviour
     }
     private void SpawnSfxPrefab(GameObject pf)
     {
-        Instantiate(pf, Vector3.zero, Quaternion.identity);
+        Instantiate(pf, Vector3.zero, Quaternion.identity, transform);
     }
 }
