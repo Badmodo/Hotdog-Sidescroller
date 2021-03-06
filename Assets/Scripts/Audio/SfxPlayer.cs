@@ -10,12 +10,15 @@ public class SfxPlayer : MonoBehaviour
     [SerializeField] GameObject sfx_PlayerJump;
     [SerializeField] GameObject sfx_PlayerHurt;
     [SerializeField] GameObject sfx_GameWon;
+    [SerializeField] GameObject sfx_CoinPickup;
+
 
     public void Play_EnemyHurt()    => SpawnSfxPrefab(sfx_EnemyHurt);
     public void Play_PlayerWalk()   => SpawnSfxPrefab(sfx_PlayerWalk);
     public void Play_PlayerJump()   => SpawnSfxPrefab(sfx_PlayerJump);
     public void Play_PlayerHurt()   => SpawnSfxPrefab(sfx_PlayerHurt);
     public void Play_GameWon()      => SpawnSfxPrefab(sfx_GameWon);
+    public void Play_CoinPickup()   => SpawnSfxPrefab(sfx_CoinPickup);
 
     private void Awake()
     {
