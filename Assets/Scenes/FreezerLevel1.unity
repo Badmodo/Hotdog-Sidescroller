@@ -51085,6 +51085,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3421004241941881271, guid: 4801fd0bc608af34b8b29a54db318c12,
+        type: 3}
+      propertyPath: sfx_CoinPickup
+      value: 
+      objectReference: {fileID: 121654164970767593, guid: fb5caec54ba2ad6468c3670aaa571435,
+        type: 3}
     - target: {fileID: 3421004242104015798, guid: 4801fd0bc608af34b8b29a54db318c12,
         type: 3}
       propertyPath: m_AnchorMax.y
