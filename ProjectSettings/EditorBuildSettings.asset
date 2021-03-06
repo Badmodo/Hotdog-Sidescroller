@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Supermarket.unity
     guid: 8becb24e065826b4fbfd78d957f4831e
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: 88c97ecd5535cc94798279a9dd36ca97
   m_configObjects: {}

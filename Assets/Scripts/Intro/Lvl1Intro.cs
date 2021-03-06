@@ -97,6 +97,6 @@ public class Lvl1Intro : MonoBehaviour
 
         Image7.SetActive(false);
 
-        SceneManager.LoadScene("JumpHeav");
+        SceneManager.LoadScene("FreezerLevel1");
     }
 }
