@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24306329}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: JumpTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62091200}
   - component: {fileID: 62091201}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: JumpTurotial
   m_TagString: JumpEnemies
   m_Icon: {fileID: 0}
@@ -16289,7 +16289,7 @@ GameObject:
   - component: {fileID: 189934331}
   - component: {fileID: 189934333}
   - component: {fileID: 189934332}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16364,7 +16364,7 @@ GameObject:
   - component: {fileID: 190943364}
   - component: {fileID: 190943366}
   - component: {fileID: 190943365}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17059,7 +17059,7 @@ GameObject:
   - component: {fileID: 287304145}
   - component: {fileID: 287304147}
   - component: {fileID: 287304146}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17148,7 +17148,7 @@ PrefabInstance:
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.419214
+      value: 9.49
       objectReference: {fileID: 0}
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
@@ -17209,7 +17209,7 @@ GameObject:
   - component: {fileID: 298304328}
   - component: {fileID: 298304330}
   - component: {fileID: 298304329}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17997,7 +17997,7 @@ GameObject:
   - component: {fileID: 377666031}
   - component: {fileID: 377666030}
   - component: {fileID: 377666029}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23008,7 +23008,7 @@ GameObject:
   - component: {fileID: 387416283}
   - component: {fileID: 387416285}
   - component: {fileID: 387416284}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28115,7 +28115,7 @@ GameObject:
   - component: {fileID: 482925173}
   - component: {fileID: 482925175}
   - component: {fileID: 482925174}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28287,7 +28287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486200396}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TacticalJumps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29348,7 +29348,7 @@ GameObject:
   - component: {fileID: 648828939}
   - component: {fileID: 648828941}
   - component: {fileID: 648828940}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29423,7 +29423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659884473}
   - component: {fileID: 659884474}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MovingPlatforms
   m_TagString: MovingWalkways
   m_Icon: {fileID: 0}
@@ -29447,7 +29447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7565.0005, y: 0}
+  m_AnchoredPosition: {x: 7570, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &659884474
@@ -29749,7 +29749,7 @@ GameObject:
   - component: {fileID: 676116812}
   - component: {fileID: 676116814}
   - component: {fileID: 676116813}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30186,7 +30186,7 @@ GameObject:
   - component: {fileID: 736731709}
   - component: {fileID: 736731711}
   - component: {fileID: 736731710}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39729,7 +39729,7 @@ GameObject:
   - component: {fileID: 782760404}
   - component: {fileID: 782760406}
   - component: {fileID: 782760405}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45447,7 +45447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 866392195}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MovingPlatforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45503,7 +45503,7 @@ PrefabInstance:
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9
+      value: 5.89
       objectReference: {fileID: 0}
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
@@ -51156,6 +51156,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3421004243416300085, guid: 4801fd0bc608af34b8b29a54db318c12,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.27
+      objectReference: {fileID: 0}
     - target: {fileID: 3421004243416300090, guid: 4801fd0bc608af34b8b29a54db318c12,
         type: 3}
       propertyPath: xMin
@@ -51239,7 +51244,7 @@ GameObject:
   - component: {fileID: 1013913761}
   - component: {fileID: 1013913763}
   - component: {fileID: 1013913762}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52048,7 +52053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070237356}
   - component: {fileID: 1070237357}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ScoreSystem
   m_TagString: ScoreSystem
   m_Icon: {fileID: 0}
@@ -52276,7 +52281,7 @@ GameObject:
   - component: {fileID: 1106975624}
   - component: {fileID: 1106975626}
   - component: {fileID: 1106975625}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52701,7 +52706,7 @@ GameObject:
   - component: {fileID: 1149457189}
   - component: {fileID: 1149457191}
   - component: {fileID: 1149457190}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53396,12 +53401,12 @@ PrefabInstance:
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.177792
+      value: -26.36
       objectReference: {fileID: 0}
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.899214
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
@@ -53834,7 +53839,7 @@ GameObject:
   - component: {fileID: 1227585251}
   - component: {fileID: 1227585253}
   - component: {fileID: 1227585252}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68491,7 +68496,7 @@ GameObject:
   - component: {fileID: 1269572556}
   - component: {fileID: 1269572555}
   - component: {fileID: 1269572554}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73528,7 +73533,7 @@ GameObject:
   - component: {fileID: 1301347208}
   - component: {fileID: 1301347210}
   - component: {fileID: 1301347209}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73789,7 +73794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344808445}
   - component: {fileID: 1344808446}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: TacticalJump
   m_TagString: TacticalJump
   m_Icon: {fileID: 0}
@@ -79215,7 +79220,7 @@ GameObject:
   - component: {fileID: 1439135021}
   - component: {fileID: 1439135023}
   - component: {fileID: 1439135022}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79331,7 +79336,7 @@ GameObject:
   - component: {fileID: 1455683420}
   - component: {fileID: 1455683419}
   - component: {fileID: 1455683418}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79438,7 +79443,7 @@ GameObject:
   - component: {fileID: 1455992403}
   - component: {fileID: 1455992405}
   - component: {fileID: 1455992404}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84643,7 +84648,7 @@ GameObject:
   - component: {fileID: 1511285130}
   - component: {fileID: 1511285132}
   - component: {fileID: 1511285131}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84912,7 +84917,7 @@ GameObject:
   - component: {fileID: 1541771700}
   - component: {fileID: 1541771702}
   - component: {fileID: 1541771701}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89910,7 +89915,7 @@ GameObject:
   - component: {fileID: 1563191524}
   - component: {fileID: 1563191526}
   - component: {fileID: 1563191525}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90335,7 +90340,7 @@ GameObject:
   - component: {fileID: 1599197374}
   - component: {fileID: 1599197376}
   - component: {fileID: 1599197375}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90513,7 +90518,7 @@ GameObject:
   - component: {fileID: 1623869466}
   - component: {fileID: 1623869465}
   - component: {fileID: 1623869464}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90620,7 +90625,7 @@ GameObject:
   - component: {fileID: 1625221180}
   - component: {fileID: 1625221182}
   - component: {fileID: 1625221181}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90755,7 +90760,7 @@ GameObject:
   - component: {fileID: 1630858797}
   - component: {fileID: 1630858799}
   - component: {fileID: 1630858798}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106672,7 +106677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1831503043}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ScoreSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112406,7 +112411,7 @@ GameObject:
   - component: {fileID: 1990231913}
   - component: {fileID: 1990231915}
   - component: {fileID: 1990231914}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
