@@ -20,10 +20,11 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(youDied());
+        //Starts the title screen
+        StartCoroutine(TitleActivator());
     }
 
-    IEnumerator youDied()
+    IEnumerator TitleActivator()
     {
         yield return new WaitForSeconds(1f);
         LevelTitle.SetActive(true);
@@ -52,6 +53,7 @@ public class UIManager : MonoBehaviour
 
     void Update ()
     {
+        //open and close the pause menu
         if (PauseMenuOpen == false)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -72,12 +74,14 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        //used to close the title screen
         if (Input.GetKeyDown("e"))
         {
             LevelTitle.SetActive(false);
             Time.timeScale = 1;
         }
     }
+
     #region PauseMenu
     public void Restart()
     {

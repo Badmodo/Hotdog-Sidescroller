@@ -9,7 +9,7 @@ public class ScoreBoardController : MonoBehaviour
     [SerializeField] Text highscoreText;
 
     float scoreTickDurtion = 2f;
-    private int nextLevel;
+    public int nextLevel;
 
     public void GoToNextLevel ()
     {
