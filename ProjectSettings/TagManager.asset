@@ -16,6 +16,7 @@ TagManager:
   - MovingWalkways
   - TacticalJump
   - ScoreSystem
+  - JumpEnemies
   layers:
   - Default
   - TransparentFX

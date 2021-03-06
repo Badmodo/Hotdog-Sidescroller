@@ -13,9 +13,22 @@ public class UIManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public bool PauseMenuOpen;
+    public GameObject LevelTitle;
 
     ScoreBoardController scoreBoard;
     HUD hud;
+
+    private void Start()
+    {
+        StartCoroutine(youDied());
+    }
+
+    IEnumerator youDied()
+    {
+        yield return new WaitForSeconds(1f);
+        LevelTitle.SetActive(true);
+        Time.timeScale = 0;
+    }
 
     void Awake()
     {
@@ -57,6 +70,12 @@ public class UIManager : MonoBehaviour
                 pauseMenu.SetActive(false);
                 PauseMenuOpen = false;
             }
+        }
+
+        if (Input.GetKeyDown("e"))
+        {
+            LevelTitle.SetActive(false);
+            Time.timeScale = 1;
         }
     }
     #region PauseMenu

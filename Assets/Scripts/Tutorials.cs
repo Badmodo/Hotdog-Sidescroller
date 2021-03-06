@@ -10,12 +10,6 @@ public class Tutorials : MonoBehaviour
     public GameObject ScoreSystemTutorial;
 
 
-    void Start()
-    {
-            JumpTutorial.SetActive(true);
-            Time.timeScale = 0;
-    }
-
     void Update()
     {
         if (Input.GetKeyDown("e"))
@@ -30,6 +24,12 @@ public class Tutorials : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "JumpEnemies")
+        {
+            JumpTutorial.SetActive(true);
+            Time.timeScale = 0;
+        }
+        
         if (other.gameObject.tag == "MovingWalkways")
         {
             MovingWalkwaysTutorial.SetActive(true);
