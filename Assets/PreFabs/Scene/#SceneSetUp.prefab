@@ -4138,8 +4138,6 @@ MonoBehaviour:
   yMin: 0
   yMax: 9.9
   player: {fileID: 0}
-  offsetAmount: {x: 3, y: 1}
-  offsetSpeed: {x: 2, y: 4}
 --- !u!1 &3421004243434534663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4762,7 +4760,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: (Space)
+  m_Text: (E to Continue)
 --- !u!114 &3463310571632013774
 MonoBehaviour:
   m_ObjectHideFlags: 0

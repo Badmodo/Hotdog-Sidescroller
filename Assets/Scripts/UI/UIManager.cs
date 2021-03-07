@@ -26,13 +26,12 @@ public class UIManager : MonoBehaviour
 
     IEnumerator TitleActivator()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         if (LevelTitle != null)
         {
             LevelTitle.SetActive(true);
             Time.timeScale = 0;
-        }
-        
+        }        
     }
 
     void Awake()
@@ -41,8 +40,6 @@ public class UIManager : MonoBehaviour
         scoreBoard = GetComponent<ScoreBoardController>();
         hud = GetComponent<HUD>();
     }
-
-
 
     public void OpenScoreBoard(int score)
     {
@@ -105,5 +102,4 @@ public class UIManager : MonoBehaviour
         PauseMenuOpen = false;
     }
     #endregion
-
 }

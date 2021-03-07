@@ -331,18 +331,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Hotdog Party\n\n\n\n\n\n\n\n\nIn the beggining there was nothing, then
-    with a spark the world was ignited. A violent and aggressive force rose to power,
-    by force. Lead by a tyrannical leader known only as 'The Butcher'. The world
-    seemed to be on the brink of distruction.\n\n\n\n\n\n\nAs we are all very aware,
-    our planet has a natural flow, good and bad, right and wrong, ying and yang.
-    When an unstopable force is generated, there is a feedback of sorts. Scholars
-    have deciphered it as the natural order of things and this is what has kept our
-    planet spinning for so long.\n\n\n\n\n\n\nNaturally as The Butcher's reign takes
-    hold, a small voice becons from the dark. It starts as a wisper, and builds.
-    Until it is a hurricane force slamming into The Butcher's front door.\n\n\n\n\n\n\nThe
-    Hotdog Party has saved our planet. \n\n\n\n\n\n\n\n\n\nBut as we all know, when
-    good wins out. When evil is defeated and hope is re-gained - it's only a matter
-    of time....\n\n\n\n\n\n\n\n\n\n\n\nHOTDOG PARTY 2, DAWN OF THE DOGS!!!\n\n\n\n\nA
+    with a spark the world was ignited. A violent and aggressive force rose to power.
+    Lead by a tyrannical leader known only as 'The Butcher'. The world seemed to
+    be on the brink of distruction.\n\n\n\n\n\n\nAs we are all very aware, our planet
+    has a natural flow, good and bad, right and wrong, ying and yang. When an unstopable
+    force is generated, there is a feedback of sorts. Scholars have deciphered it
+    as the natural order of things and this is what has kept our planet spinning
+    for so long.\n\n\n\n\n\n\nNaturally as The Butcher's reign takes hold, a small
+    voice becons from the dark. It starts as a wisper, and builds. Until it is a
+    hurricane force slamming into The Butcher's front door.\n\n\n\n\n\n\nThe Hotdog
+    Party has saved our planet. \n\n\n\n\n\n\n\n\n\nBut as we all know, when good
+    wins out. When evil is defeated and hope is re-gained - it's only a matter of
+    time....\n\n\n\n\n\n\n\n\n\n\n\nHOTDOG PARTY 2, DAWN OF THE DOGS!!!\n\n\n\n\nA
     very special thanks to the team that worked on Hotdog Party and brought this
     special idea to fruition. \n\nThank you Claire, Joe, Jackson (Unamed) & Sam.\n\n"
   m_isRightToLeft: 0
@@ -516,6 +516,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455921599}
   m_CullTransparentMesh: 1
+--- !u!1 &1649427123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649427124}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649427124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649427123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1110.6825, y: 2117.467, z: -1462.2856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1713796592
 GameObject:
   m_ObjectHideFlags: 0

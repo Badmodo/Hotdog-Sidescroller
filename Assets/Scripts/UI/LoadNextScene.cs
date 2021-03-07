@@ -25,14 +25,10 @@ public class LoadNextScene : MonoBehaviour
         //if score is open use space to move to next screen
         if (ScoreScreen == true)
         {
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("e"))
             {
                 SceneManager.LoadScene(nextLevel);
             }
         }
-
-
     }
-
-
 }
