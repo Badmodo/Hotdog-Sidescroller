@@ -5,6 +5,7 @@ public abstract class EnemyBodyBase : EnemyBase
 {
     protected bool isStompable = false;
 
+    public bool IsStompable => isStompable;
     public void SteppedOnByPlayer()
     {
         if (isStompable)

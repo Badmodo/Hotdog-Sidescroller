@@ -7,8 +7,9 @@ public class MustardGrenadierEnemy : Goomba
     [SerializeField] float shootCooldown = 2.5f;
     Animator animator;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         animator = GetComponent<Animator>();
     }
 

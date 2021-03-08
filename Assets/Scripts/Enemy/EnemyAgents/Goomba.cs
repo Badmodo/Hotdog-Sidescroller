@@ -12,7 +12,7 @@ public class Goomba : EnemyBodyBase
     protected SpriteRenderer sr;
     protected int currentMoveDir;
 
-    private void Awake ()
+    protected virtual void Awake ()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();

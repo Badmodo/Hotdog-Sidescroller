@@ -29,6 +29,11 @@ public abstract class EnemyBulletBase : EnemyBase, IPoolable
         aliveTimer = -1f;
     }
 
+    public override void DamagedPlayer()
+    {
+        Despawn();
+    }
+
     IEnumerator DelayedAutoDespawn()
     {
         //Not 100% sure

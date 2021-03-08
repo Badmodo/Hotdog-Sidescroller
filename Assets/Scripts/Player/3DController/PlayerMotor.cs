@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRaycaster))]
 public class PlayerMotor : MonoBehaviour
 {
-    const int MaxJumps = 2;
+    const float DamageDuration = 0.1f;
 
     public int moveSpeed = 400;
     public int jumpPower = 1250;
@@ -41,6 +41,9 @@ public class PlayerMotor : MonoBehaviour
     public ParticleSystem impactEffect;
     private bool wasOnGround;
     private bool onMovingPlatform;
+    float damageTimer;
+
+    public bool OnGround => onGround;
 
     #region Mono
     void Awake()
@@ -105,9 +108,22 @@ public class PlayerMotor : MonoBehaviour
 
     #region Public 
     public bool IsAboveTarget(Collider target) => (collider.bounds.min.y - 0.1f) > (target.bounds.min.y);
-    public void SteppedOnEnemy()
+    public void StompedEnemy()
     {
         Jump(jumpPower);
+    }
+    public void DamagedByEnemy(Vector3 enemyPos)
+    {
+        if (onGround)
+            damageTimer = 0.1f;
+        else
+            damageTimer = 0.05f;
+
+        hasAirJump = true;
+        Vector3 knockbackDir = (transform.position - enemyPos).normalized;
+        knockbackDir.y = 200f;
+        currentVelocity = targetVelocity = knockbackDir * 2f;
+        Debug.DrawRay(transform.position, knockbackDir, Color.cyan, 10f);
     }
 
     public void SetSteppedOnMovingPlatform(bool isOn)
@@ -124,10 +140,15 @@ public class PlayerMotor : MonoBehaviour
             raycaster.RaycastCheckGround();
 
         UpdateOnGroundStatus();
-        ApplyGravity();
         DetectJumpCommand();
         CheckForEnemyBelowToStepOn();
-        HorizontalMoveUpdate();
+        if (damageTimer <= 0f)
+        {
+            ApplyGravity();
+            HorizontalMoveUpdate();
+        }
+        else
+            damageTimer -= Time.deltaTime;
 
         AnimationUpdate();
         prev_OnGround = onGround;
@@ -210,8 +231,6 @@ public class PlayerMotor : MonoBehaviour
         isMoving = targetVelocity.x > 0.1f || targetVelocity.x < -0.1f;
     }
 
-
-
     void DetectJumpCommand()
     {
         if (PressedJump)
@@ -252,11 +271,11 @@ public class PlayerMotor : MonoBehaviour
             RaycastHit L;
             if (Physics.Raycast(raycaster.BL, Vector2.down, out L, 0.1f, enemyLayer))
             {
-                player.SteppedOnEnemy(L.collider);
+                player.AttemptToStompEnemy(L.collider);
                 RaycastHit R;
                 if (Physics.Raycast(raycaster.BR, Vector2.down, out R, 0.1f, enemyLayer))
                 {
-                    player.SteppedOnEnemy(R.collider);
+                    player.AttemptToStompEnemy(R.collider);
                 }
             }
         }

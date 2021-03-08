@@ -9,4 +9,9 @@ public abstract class EnemyBase : MonoBehaviour
     {
         poolManager = ObjectPoolManager.Instance;
     }
+
+    public virtual void DamagedPlayer ()
+    {
+
+    }
 }

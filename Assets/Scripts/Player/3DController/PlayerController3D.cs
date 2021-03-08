@@ -36,17 +36,7 @@ public class PlayerController3D : MonoBehaviour
 
     public Transform camTarget;
 
-    public void DamagePlayer()
-    {
-        if (!InHurtInvulnerability())
-        {
-            StartHurtInvulnerabilityTimer();
-            feedback.EnterDamageBlink(HurtInvulnerabilityDuration);
-            SfxPlayer.instance.Play_PlayerHurt();
-
-            playerHealth.TakeDamage(); 
-        }
-    }
+    
 
     public void SetSteppedOnMovingPlatform(bool isOn) => motor.SetSteppedOnMovingPlatform(isOn);
 
@@ -106,8 +96,20 @@ public class PlayerController3D : MonoBehaviour
         if (!InHurtInvulnerability() && (GameLayers.IsTargetOnEnemyLayer(collision.gameObject) || 
             collision.gameObject.tag == "Enemy"))
         {
-            Debug.DrawLine(transform.position, collision.gameObject.transform.position, Color.red, 10f);
-            CollidedWithEnemy(collision.collider);
+            //Debug.DrawLine(transform.position, collision.gameObject.transform.position, Color.red, 10f);
+            if (motor.IsAboveTarget(collision.collider))
+            {
+                AttemptToStompEnemy(collision.collider);
+            }
+            else
+            {
+                if (motor.OnGround)
+                {
+                    moveDirection = playerRigidbody.transform.position - collision.collider.transform.position;
+                    playerRigidbody.AddForce(moveDirection.normalized * 10000f);
+                }
+                DamagePlayer(collision.collider);
+            }
         }
     }
 
@@ -130,49 +132,42 @@ public class PlayerController3D : MonoBehaviour
     #endregion
 
     #region Enemy COllision
-    public void SteppedOnEnemy(Collider enemyCollider)
+    public void AttemptToStompEnemy(Collider enemyCollider)
     {
-        DieParticle(enemyCollider.transform.position);
-        motor.SteppedOnEnemy();
-        AddScore(100);
-        //Debug.Log("" + enemyCollider);
         EnemyBodyBase enemy = enemyCollider.GetComponent<EnemyBodyBase>();
-        Debug.Log("A - " + enemy);
+
         if (enemy != null)
         {
-            Debug.Log("B - " + enemy);
-            SteppedOnEnemy_BasicEnemy(enemy);
+            if (enemy.IsStompable)
+            {
+                DieParticle(enemyCollider.transform.position);
+                motor.StompedEnemy();
+                AddScore(100);
+                //Debug.Log("A - " + enemy);
+                enemy.SteppedOnByPlayer();
+            }
+            else
+            {
+                DamagePlayer(enemyCollider);
+            }
         }
-
-        //try
-        //{
-        //    //Debug.Log("" + enemyCollider);
-        //    EnemyBodyBase enemy = enemyCollider.GetComponent<EnemyBodyBase>();
-        //    Debug.Log("A - " + enemy);
-        //    if (enemy != null)
-        //    {
-        //        Debug.Log("B - " + enemy);
-        //        switch (enemy.EnemyType)
-        //        {
-        //            case EnemyTypes.EnemyType1:
-        //            default:
-        //                SteppedOnEnemy_BasicEnemy(enemy);
-        //                break;
-        //        }
-        //    }
-        //}
-        //catch (System.Exception e)
-        //{
-        //    Debug.Log(e.Message);
-        //    //Debug.Log(e.Message + ". Ignore for now. You might've steeping on an enemy bullet. Ideallyer there are 2 layers - enenmy body and " +
-        //    //    "enemy bullet.But doing that right now will break other scenes. After adding those layers and assigning them to enemy perfabs, go to GameLayers and set up the layer collision checks.");
-        //    //Debug.Log(e + ". Error, I think there is no component EnemyController on enemy object " + enemyCollider.gameObject.name);
-        ////}
     }
 
-    void SteppedOnEnemy_BasicEnemy (EnemyBodyBase enemy)
+    void DamagePlayer(Collider enemyCollider)
     {
-        enemy.SteppedOnByPlayer();
+        if (!InHurtInvulnerability())
+        {
+            StartHurtInvulnerabilityTimer();
+            feedback.EnterDamageBlink(HurtInvulnerabilityDuration);
+            SfxPlayer.instance.Play_PlayerHurt();
+
+            playerHealth.TakeDamage();
+            motor.DamagedByEnemy(enemyCollider.transform.position);
+
+            EnemyBase e = enemyCollider.GetComponent<EnemyBase>();
+            if (e != null)
+                e.DamagedPlayer();
+        }
     }
     #endregion
 
@@ -181,22 +176,6 @@ public class PlayerController3D : MonoBehaviour
     void DieParticle(Vector3 particlePosition)
     {
         poolManager.SpawnEnemyDeathParticle(particlePosition, Quaternion.identity);
-    }
-    #endregion
-
-    #region Collision
-    void CollidedWithEnemy(Collider enemYCollider)
-    {
-        if (motor.IsAboveTarget(enemYCollider))
-        {
-            SteppedOnEnemy(enemYCollider);
-        }
-        else
-        {
-            moveDirection = playerRigidbody.transform.position - enemYCollider.transform.position;
-            playerRigidbody.AddForce(moveDirection.normalized * 10000f);
-            DamagePlayer();
-        }
     }
     #endregion
 

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0112c5b718c565643b1eb316bd6cc706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySpeed: 3
+  EnemySpeed: 0
   facingRight: 0
   firePoint: {fileID: 1182849542}
   shootCooldown: 2.5
