@@ -2,33 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombEnemy : EnemyBodyBase
+public class BombEnemy : Goomba
 {
-    public Transform firePoint;
-    public float delay = 1.5f;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float shootCooldown = 1.5f;
 
     protected override void Start()
     {
         base.Start();
-        Shoot();
+        StartCoroutine(AttackCycle());
     }
 
-    void Shoot()
+    private IEnumerator AttackCycle()
     {
-        StartCoroutine(FireDelay());
+        while(true)
+        {
+            yield return new WaitForSeconds(shootCooldown);
+            Shoot();
+        }
     }
 
-    IEnumerator FireDelay()
+    private void Shoot()
     {
-        yield return new WaitForSeconds(delay);
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
-        MustardBombBullet(firePoint.position);
-        StartCoroutine(FireDelay());
-    }
-
-    void MustardBombBullet(Vector3 particlePosition)
-    {
-        poolManager.SpawnBombBullet(particlePosition, firePoint.rotation);
+        poolManager.SpawnBombBullet(firePoint.position, firePoint.rotation);
     }
 }
 

@@ -44,8 +44,6 @@ GameObject:
   - component: {fileID: 457398045}
   - component: {fileID: 457398044}
   - component: {fileID: 457398042}
-  - component: {fileID: 457398043}
-  - component: {fileID: 457398046}
   m_Layer: 8
   m_Name: MustardBounce
   m_TagString: Enemy
@@ -180,48 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0112c5b718c565643b1eb316bd6cc706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
-  firePoint: {fileID: 1182849542}
-  delay: 1.5
---- !u!114 &457398043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888040560523698075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb3e1d02b28f8e4a89f93fe35a573b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  attackStrength: 1
-  rb: {fileID: 457398045}
-  spriteRenderer: {fileID: 1888040560523698073}
---- !u!114 &457398046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888040560523698075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 3
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  firePoint: {fileID: 1182849542}
+  shootCooldown: 2.5

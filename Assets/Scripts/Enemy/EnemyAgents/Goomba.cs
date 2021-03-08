@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyController3D : EnemyBodyBase
+public class Goomba : EnemyBodyBase
 {
-    public int EnemySpeed;
-    public bool facingRight = false;
-    public LayerMask wallLayer;
-    public LayerMask enemyLayer;
+    [SerializeField] private int EnemySpeed;
+    [SerializeField] private bool facingRight = false;
 
-    Rigidbody rb;
-    private SpriteRenderer sr;
-    private int moveDir;
+    protected Rigidbody rb;
+    protected SpriteRenderer sr;
+    protected int currentMoveDir;
 
-    void Awake ()
+    private void Awake ()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
-        UpdateFacing();
+        UpdateMovementDirection();
     }
 
     protected override void Start()
     {
         base.Start();
+        isStompable = true;
     }
 
-    void Update()
+    private void Update()
     {
         WallhitDetection();
-        UpdateFacing();
+        UpdateMovementDirection();
     }
 
-    void WallhitDetection ()
+    private void WallhitDetection ()
     {
-        Vector2 checkDir = new Vector2(moveDir, 0);
+        Vector2 checkDir = new Vector2(currentMoveDir, 0);
         if (Physics.Raycast(transform.position, checkDir,  out RaycastHit hit, 0.8f))
         {
             if (GameLayers.IsTargetOnEnemyLayer(hit.collider.gameObject) || GameLayers.IsTargetOnGroundLayer(hit.collider.gameObject))
@@ -42,19 +41,17 @@ public class EnemyController3D : EnemyBodyBase
         }
         Debug.DrawRay(transform.position, checkDir * 0.8f, Color.red);
     }
-   
-    void Flip ()
+
+    private void Flip ()
     {
         facingRight = !facingRight;
-        UpdateFacing();
+        UpdateMovementDirection();
     }
 
-    void UpdateFacing ()
+    private void UpdateMovementDirection ()
     {
         sr.flipX = facingRight;
-        moveDir = facingRight ? 1 : -1;
-        rb.velocity = new Vector2(moveDir, 0) * EnemySpeed;
+        currentMoveDir = facingRight ? 1 : -1;
+        rb.velocity = new Vector2(currentMoveDir, 0) * EnemySpeed;
     }
-
-    
 }

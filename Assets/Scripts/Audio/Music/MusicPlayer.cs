@@ -12,7 +12,7 @@ public class MusicPlayer : MonoBehaviour
 
     public BGMContainer[] Songs;
 
-    private AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
     private bool fadingOut;
 
     private void Awake()
@@ -21,7 +21,6 @@ public class MusicPlayer : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            audioSource = GetComponent<AudioSource>();
             OnLevelWasLoaded(SceneManager.GetActiveScene().buildIndex);
         }
         else

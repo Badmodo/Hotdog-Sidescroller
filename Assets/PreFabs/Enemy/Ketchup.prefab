@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1469131295}
   - component: {fileID: 1469131294}
   - component: {fileID: 1469131296}
-  - component: {fileID: 1469131297}
   m_Layer: 8
   m_Name: Ketchup
   m_TagString: Untagged
@@ -148,33 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 4
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &1469131297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429999793648458213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb3e1d02b28f8e4a89f93fe35a573b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackStrength: 1
-  rb: {fileID: 1469131295}
-  spriteRenderer: {fileID: 429999793648458215}

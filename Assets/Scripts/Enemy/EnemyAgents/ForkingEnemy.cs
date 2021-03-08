@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForkingEnemy : MonoBehaviour
+public class ForkingEnemy : EnemyBodyBase
 {
-
 	[SerializeField] private float speed;
 	[SerializeField] private float distance;
 	private Transform lowPoint, topPoint;
 	private bool isRising;
 
-	private void Start()
-	{
-		
+    protected override void Start()
+    {
+        base.Start();
+		isStompable = true;
 	}
+
 	private void Update()
 	{
 		if (isRising)

@@ -3,11 +3,14 @@ using System.Collections;
 
 public abstract class EnemyBodyBase : EnemyBase
 {
-    public bool canKilledByJumpingOnThem = true;
+    protected bool isStompable = false;
 
     public void SteppedOnByPlayer()
     {
-        SfxPlayer.instance.Play_EnemyHurt();
-        Destroy(gameObject);    
+        if (isStompable)
+        {
+            SfxPlayer.instance.Play_EnemyHurt();
+            Destroy(gameObject);
+        }
     }
 }

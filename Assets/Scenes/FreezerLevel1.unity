@@ -7578,7 +7578,7 @@ PrefabInstance:
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.49
+      value: 9.411
       objectReference: {fileID: 0}
     - target: {fileID: 2761703556641793306, guid: bb5469e76fd723a40a1fd8e50650bfd7,
         type: 3}
@@ -14200,7 +14200,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1469131297, guid: e4c4673defef88d4a9c5396c84b8afa6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4c4673defef88d4a9c5396c84b8afa6, type: 3}
 --- !u!1001 &523953321
 PrefabInstance:
@@ -49728,7 +49729,7 @@ PrefabInstance:
     - target: {fileID: 1631942998722763214, guid: 4ebb5c3b992a6da41bba68e3e5add532,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.630002
+      value: 12.23
       objectReference: {fileID: 0}
     - target: {fileID: 1631942998722763214, guid: 4ebb5c3b992a6da41bba68e3e5add532,
         type: 3}
@@ -62176,26 +62177,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7085970683727492301, guid: 678881d0d952685488cd8fd359795f1e,
-        type: 3}
-      propertyPath: LevelIndexForSongs.Array.data[0].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fd35e6db74e64a84fbe8c6bd62c03b5f, type: 3}
-    - target: {fileID: 7085970683727492301, guid: 678881d0d952685488cd8fd359795f1e,
-        type: 3}
-      propertyPath: LevelIndexForSongs.Array.data[1].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: c799af7ff4716c946b1d3f07dc84dedf, type: 3}
-    - target: {fileID: 7085970683727492301, guid: 678881d0d952685488cd8fd359795f1e,
-        type: 3}
-      propertyPath: LevelIndexForSongs.Array.data[0].Integer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7085970683727492301, guid: 678881d0d952685488cd8fd359795f1e,
-        type: 3}
-      propertyPath: LevelIndexForSongs.Array.data[1].Integer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8932658792546336396, guid: 678881d0d952685488cd8fd359795f1e,
         type: 3}
       propertyPath: m_RootOrder

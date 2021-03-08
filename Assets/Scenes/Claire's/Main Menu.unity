@@ -376,7 +376,7 @@ MonoBehaviour:
     m_Top: 200
     m_Bottom: 200
   m_ChildAlignment: 4
-  m_Spacing: 175
+  m_Spacing: 38.03
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -6647,7 +6647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035166779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6662,10 +6662,10 @@ RectTransform:
   m_Father: {fileID: 166275616}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1017.5, y: -273.75}
+  m_SizeDelta: {x: 383, y: 147.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035166780
 MonoBehaviour:
@@ -7511,7 +7511,7 @@ RectTransform:
   m_GameObject: {fileID: 1802046459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.64528, y: 0.64528, z: 0.64528}
+  m_LocalScale: {x: 0.4968656, y: 0.4968656, z: 0.4968656}
   m_Children: []
   m_Father: {fileID: 166275616}
   m_RootOrder: 2
@@ -7866,7 +7866,7 @@ RectTransform:
   m_GameObject: {fileID: 1953540388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.64528, y: 0.64528, z: 0.64528}
+  m_LocalScale: {x: 0.4968656, y: 0.4968656, z: 0.4968656}
   m_Children: []
   m_Father: {fileID: 166275616}
   m_RootOrder: 0
@@ -8254,7 +8254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBeforeShutter: 0.8
-  waitBeforeBGM: 1.5
+  waitBeforeBGM: 1.6
   vignetteFadeSpeed: 0.1
   fader: {fileID: 9172142588338798462}
   sfx_scrollingClip: {fileID: 121654164970767593, guid: 9b0036296a8a84e44b0c1eb5f8e2856c,

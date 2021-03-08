@@ -1558,15 +1558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 5
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!54 &280839315
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8800,15 +8793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 5
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!54 &1203467445
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11872,15 +11858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 5
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!54 &1527487309
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12264,15 +12243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
   EnemySpeed: 5
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1540740601
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -141,10 +141,7 @@ public class PlayerController3D : MonoBehaviour
         if (enemy != null)
         {
             Debug.Log("B - " + enemy);
-            if (enemy.canKilledByJumpingOnThem)
-            {
-                SteppedOnEnemy_BasicEnemy(enemy);
-            }
+            SteppedOnEnemy_BasicEnemy(enemy);
         }
 
         //try
