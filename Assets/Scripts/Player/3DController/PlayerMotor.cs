@@ -259,7 +259,7 @@ public class PlayerMotor : MonoBehaviour
 
         if (isJumping && ReleasedJumpButton)
         {
-            targetVelocity.y = targetVelocity.y * 0.5f;
+            targetVelocity.y = targetVelocity.y * 0.75f;
             //targetVelocity.y = 0f;
         }
     }
