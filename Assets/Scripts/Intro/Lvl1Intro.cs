@@ -28,7 +28,7 @@ public class Lvl1Intro : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.E))
             LoadLevel();
     }
 
@@ -103,11 +103,13 @@ public class Lvl1Intro : MonoBehaviour
 
         Image7.SetActive(false);
 
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("FreezerLevel1");
     }
 
     void LoadLevel ()
     {
         SceneManager.LoadScene("FreezerLevel1");
-
     }
 }
