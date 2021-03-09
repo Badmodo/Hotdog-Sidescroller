@@ -42,6 +42,7 @@ public class PlayerMotor : MonoBehaviour
     private bool wasOnGround;
     private bool onMovingPlatform;
     float damageTimer;
+    private bool logging = false;
 
     public bool OnGround => onGround;
 
@@ -92,18 +93,25 @@ public class PlayerMotor : MonoBehaviour
         {
             hangCounter -= Time.deltaTime;
         }
+
+        //Debug log
+        if (Input.GetKeyDown(KeyCode.L))
+            logging = !logging;
     }
 
-    //void OnGUI()
-    //{
-    //    GUI.Label(new Rect(20, 220, 200, 20), "On ground = " + onGround, gui);
-    //    GUI.Label(new Rect(20, 240, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
-    //    GUI.Label(new Rect(20, 260, 200, 20), "hasAirJump = " + hasAirJump, gui);
-    //    GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
-    //    GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
-    //    GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
-    //    GUI.Label(new Rect(20, 340, 200, 20), "onMovingPlatform = " + onMovingPlatform, gui);
-    //}
+    void OnGUI()
+    {
+        if (logging)
+        {
+            GUI.Label(new Rect(20, 220, 200, 20), "On ground = " + onGround, gui);
+            GUI.Label(new Rect(20, 240, 200, 20), "Y = " + rb.velocity.y.ToString("000"), gui);
+            GUI.Label(new Rect(20, 260, 200, 20), "hasAirJump = " + hasAirJump, gui);
+            GUI.Label(new Rect(20, 280, 200, 20), "currentVelocity = " + currentVelocity, gui);
+            GUI.Label(new Rect(20, 300, 200, 20), "targetVelocity = " + targetVelocity, gui);
+            GUI.Label(new Rect(20, 320, 200, 20), "raycaster.OnGround = " + raycaster.OnGround, gui);
+            GUI.Label(new Rect(20, 340, 200, 20), "onMovingPlatform = " + onMovingPlatform, gui);
+        }
+    }
     #endregion
 
     #region Public 

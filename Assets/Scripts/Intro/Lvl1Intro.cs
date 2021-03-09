@@ -26,6 +26,12 @@ public class Lvl1Intro : MonoBehaviour
         StartCoroutine(WaitToSpawn());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+            LoadLevel();
+    }
+
     IEnumerator WaitToSpawn()
     {
         yield return new WaitForSeconds(3);
@@ -97,6 +103,11 @@ public class Lvl1Intro : MonoBehaviour
 
         Image7.SetActive(false);
 
+    }
+
+    void LoadLevel ()
+    {
         SceneManager.LoadScene("FreezerLevel1");
+
     }
 }

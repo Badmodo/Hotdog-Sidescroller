@@ -50,7 +50,7 @@ public class MainMenuEffects : MonoBehaviour
     IEnumerator FadeOutVignette ()
     {
         //vignette.intensity.value = 1f;
-        while (vignette.intensity.value > 0f)
+        while (vignette.intensity.value > 0.4f)
         {
             vignette.intensity.value -= Time.deltaTime * vignetteFadeSpeed;
             yield return null;
