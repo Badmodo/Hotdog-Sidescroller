@@ -44,6 +44,7 @@ public class ObjectPool
 
     public void ReturnToPool (GameObject go)
     {
+        //Debug.Log("--- " + go.name + " ---  ");
         for (int i = 0; i < actives.Count; i++)
         {
             if (go == actives[i])
@@ -54,7 +55,6 @@ public class ObjectPool
                 return;
             }
         }
-        Debug.Log("cannot return this object to pool " + go.name);
     }
 }
 

@@ -8,6 +8,7 @@ public abstract class EnemyBulletBase : EnemyBase, IPoolable
     public float aliveDuration = 2f;
     protected Rigidbody rb;
     protected ObjectPool pool;
+    protected bool Destroyed;
 
     float aliveTimer;
 
@@ -19,14 +20,19 @@ public abstract class EnemyBulletBase : EnemyBase, IPoolable
 
     public virtual void Activation()
     {
+        Destroyed = false;
         StartCoroutine(DelayedAutoDespawn());
         aliveTimer = aliveDuration;
     }
 
     public virtual void Despawn()
     {
-        pool.ReturnToPool(gameObject);
-        aliveTimer = -1f;
+        if (!Destroyed)
+        {
+            Destroyed = true;
+            pool.ReturnToPool(gameObject);
+            aliveTimer = -1f;
+        }
     }
 
     public override void DamagedPlayer()

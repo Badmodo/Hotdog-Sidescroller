@@ -26,6 +26,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     public void SpawnEnemyDeathParticle (Vector3 pos, Quaternion rotation)
     {
+        Debug.Log("SpawnEnemyDeathParticle");
         pool_Particle.Spawn(pos, rotation);
 
     } 
