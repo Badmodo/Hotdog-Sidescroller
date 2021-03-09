@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroPreStartMenu.unity
     guid: 505d459bfd7c3b64fa48df7a8f469913
   - enabled: 1
-    path: Assets/Scenes/Claire's/Main Menu.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: 6c07eec2a4788a2498fe66f5f15cc60d
   - enabled: 1
     path: Assets/Scenes/IntroPreLevel1.unity
