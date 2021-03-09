@@ -15,7 +15,7 @@ public class MovingPlatform : MonoBehaviour
 		origPoint = transform.position;
 	}
 
-	public void Update()
+	public void FixedUpdate()
 	{
 		if (!reached)
 		{

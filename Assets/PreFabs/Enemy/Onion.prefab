@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940038164f23c0a42a0de6b30cb6d832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cryingDuration: 3
+  cryingDuration: 2
   calmDuration: 3
   aoeDamageZone: {fileID: 1862066903242631698}
   particles: []

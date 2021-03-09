@@ -17,7 +17,7 @@ public class OnionEnemy : EnemyBodyBase
 
         animator = GetComponent<Animator>();
         particles = GetComponentsInChildren<ParticleSystem>();
-
+        isStompable = true;
 
 
         StartCoroutine(AttackCycle());
@@ -47,7 +47,7 @@ public class OnionEnemy : EnemyBodyBase
     private void ToggleCryingCollision (bool isAttacking)
     {
         aoeDamageZone.enabled = isAttacking;
-        isStompable = !isAttacking;
+        //isStompable = !isAttacking;
     }
 
     private void ToggleCryingAnimation (bool isCrying)

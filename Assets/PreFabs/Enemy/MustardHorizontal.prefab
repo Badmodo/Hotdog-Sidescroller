@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8081122882043739198}
-  delay: 1.5
+  delay: 3
 --- !u!54 &8081122883753460634
 Rigidbody:
   m_ObjectHideFlags: 0

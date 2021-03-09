@@ -78,7 +78,10 @@ public class UIManager : MonoBehaviour
         //used to close the title screen
         if (Input.GetKeyDown("e"))
         {
-            LevelTitle.SetActive(false);
+            if (LevelTitle != null)
+            {
+                LevelTitle.SetActive(false);
+            }
             Time.timeScale = 1;
         }
     }

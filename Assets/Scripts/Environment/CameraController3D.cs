@@ -25,7 +25,7 @@ public class CameraController3D : MonoBehaviour
         startingZ = transform.position.z;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (player != null)
         {
