@@ -26,6 +26,8 @@ public class ObjectPool
             go.SetActive(true);
             pool.RemoveAt(0);
             actives.Add(go);
+            go.transform.position = spawnPos;
+            go.transform.rotation = rotation;
         }
         else
         {
@@ -40,8 +42,6 @@ public class ObjectPool
         return go;
     }
 
-
-
     public void ReturnToPool (GameObject go)
     {
         for (int i = 0; i < actives.Count; i++)
@@ -54,7 +54,7 @@ public class ObjectPool
                 return;
             }
         }
-        Debug.Log("error");
+        Debug.Log("cannot return this object to pool " + go.name);
     }
 }
 

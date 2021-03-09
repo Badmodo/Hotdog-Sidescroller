@@ -51,7 +51,9 @@ public class MusicPlayer : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Playlist does not contain a song for this level. Index = " + level);
+            Debug.Log("Playlist does not contain a song for this level. Index = " + level);
+            //audioSource.clip = clip;
+            //audioSource.Play();
         }
     }
 

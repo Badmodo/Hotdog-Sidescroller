@@ -5,18 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class Goomba : EnemyBodyBase
 {
-    [SerializeField] private int EnemySpeed;
-    [SerializeField] private bool facingRight = false;
+    [SerializeField] protected float MoveSpeed;
+    [SerializeField] protected bool facingRight = false;
 
     protected Rigidbody rb;
     protected SpriteRenderer sr;
-    protected int currentMoveDir;
+    protected Vector3 moveDir;
+    protected Vector3 offset_top;
+    protected Vector3 offset_bot;
 
-    protected virtual void Awake ()
+    protected virtual void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
-        UpdateMovementDirection();
+
+        sr.flipX = facingRight;
+        moveDir = new Vector3(MoveSpeed * (facingRight ? 1 : -1), 0f, 0f);
+
+        Collider collider = GetComponent<Collider>();
+        float extent = collider.bounds.extents.y - 0.2f;
+        offset_top = new Vector3(0f, extent, 0f);
+        offset_bot = new Vector3(0f, -extent, 0f);
+
+        ExecuteVelocity();
     }
 
     protected override void Start()
@@ -28,30 +39,46 @@ public class Goomba : EnemyBodyBase
     private void Update()
     {
         WallhitDetection();
-        UpdateMovementDirection();
+        
+        //UpdateMovementDirection();
     }
 
-    private void WallhitDetection ()
+    private void WallhitDetection()
     {
-        Vector2 checkDir = new Vector2(currentMoveDir, 0);
-        if (Physics.Raycast(transform.position, checkDir,  out RaycastHit hit, 0.8f))
+        Vector2 checkDir = moveDir;
+        if (Physics.Raycast(transform.position + offset_top, checkDir, out RaycastHit hitT, 0.8f))
         {
-            if (GameLayers.IsTargetOnEnemyLayer(hit.collider.gameObject) || GameLayers.IsTargetOnGroundLayer(hit.collider.gameObject))
-            Flip();
+            DetectedObjectInfront(hitT.collider.gameObject);
         }
-        Debug.DrawRay(transform.position, checkDir * 0.8f, Color.red);
+        else if (Physics.Raycast(transform.position + offset_bot, checkDir, out RaycastHit hitB, 0.8f))
+        {
+            DetectedObjectInfront(hitB.collider.gameObject);
+        }
+        Debug.DrawRay(transform.position + offset_top, checkDir * 0.8f, Color.red);
+        Debug.DrawRay(transform.position + offset_bot, checkDir * 0.8f, Color.blue);
     }
 
-    private void Flip ()
+    private void DetectedObjectInfront(GameObject go)
+    {
+        //GameLayers.IsTargetOnEnemyLayer(go) || 
+        if (GameLayers.IsTargetOnGroundLayer(go))
+        {
+            FlipDirection();
+        }
+    }
+
+    protected virtual void FlipDirection ()
     {
         facingRight = !facingRight;
-        UpdateMovementDirection();
+        sr.flipX = facingRight;
+        moveDir.x = facingRight ? Mathf.Abs(moveDir.x) : -Mathf.Abs(moveDir.x);
+        ExecuteVelocity();
     }
 
-    private void UpdateMovementDirection ()
+    public override void DamagedPlayer()
     {
-        sr.flipX = facingRight;
-        currentMoveDir = facingRight ? 1 : -1;
-        rb.velocity = new Vector2(currentMoveDir, 0) * EnemySpeed;
+        ExecuteVelocity();
     }
+
+    protected void ExecuteVelocity () => rb.velocity = moveDir * MoveSpeed;
 }

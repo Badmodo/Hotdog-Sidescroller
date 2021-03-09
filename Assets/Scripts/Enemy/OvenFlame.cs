@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class OvenFlame : MonoBehaviour
 {
-    public GameObject fire;
-    public int ignite;
-    public int extinguish;
+    public ParticleSystem[] pfx;
+    public GameObject damageCollider;
+    public int igniteDuration;
+    public int extinguishDuration;
 
     private void Start()
     {
@@ -15,18 +16,31 @@ public class OvenFlame : MonoBehaviour
 
     private IEnumerator BurnTime()
     {
-        if (fire.activeSelf == false)
+        while (true)
         {
-            yield return new WaitForSeconds(ignite);
-            fire.SetActive(true);
-        }
-        else if (fire.activeSelf == true)
-        {
-            yield return new WaitForSeconds(extinguish);
-            fire.SetActive(false);
-        }
+            //Turn on
+            TogglePfx(true);
+            yield return new WaitForSeconds(.5f);
+            damageCollider.SetActive(true);
+            yield return new WaitForSeconds(igniteDuration - .5f);
 
-        StartCoroutine(BurnTime());
+            //Turn off
+            damageCollider.SetActive(false);
+            yield return new WaitForSeconds(.5f);
+            TogglePfx(false);
+            yield return new WaitForSeconds(extinguishDuration - .5f);
+        }
+    }
+
+    void TogglePfx(bool isTrue)
+    {
+        foreach (var p in pfx)
+        {
+            if (isTrue)
+                p.Play();
+            else
+                p.Stop();
+        }
     }
 }
 

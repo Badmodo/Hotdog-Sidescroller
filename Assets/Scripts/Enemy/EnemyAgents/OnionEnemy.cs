@@ -18,6 +18,8 @@ public class OnionEnemy : EnemyBodyBase
         animator = GetComponent<Animator>();
         particles = GetComponentsInChildren<ParticleSystem>();
 
+
+
         StartCoroutine(AttackCycle());
     }
 
@@ -25,27 +27,40 @@ public class OnionEnemy : EnemyBodyBase
     {
         while(true)
         {
-            ToggleCryingAttack(true);
-            yield return new WaitForSeconds(cryingDuration);
-            ToggleCryingAttack(false);
-            yield return new WaitForSeconds(calmDuration);
+            ToggleCryingAnimation(true);
+            yield return new WaitForSeconds(0.5f);
+            ToggleCryingCollision(true);
+            yield return new WaitForSeconds(cryingDuration - 0.5f);
+
+            //--- here the onion is crying---
+
+
+            ToggleCryingCollision(false);
+            yield return new WaitForSeconds(0.5f);
+            ToggleCryingAnimation(false);
+            yield return new WaitForSeconds(calmDuration - 0.5f);
+
+            //--- here the onion is calm---
         }
     }
 
-    private void ToggleCryingAttack (bool attacking)
+    private void ToggleCryingCollision (bool isAttacking)
     {
-        aoeDamageZone.enabled = attacking;
-        isStompable = !attacking;
+        aoeDamageZone.enabled = isAttacking;
+        isStompable = !isAttacking;
+    }
 
+    private void ToggleCryingAnimation (bool isCrying)
+    {
+        animator.SetBool("IsAttacking", isCrying);
         foreach (var p in particles)
         {
-            if (attacking)
+            if (isCrying)
                 p.Play();
             else
             {
                 p.Stop();
             }
         }
-        animator.SetBool("IsAttacking", attacking);
     }
 }

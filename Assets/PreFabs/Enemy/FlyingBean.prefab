@@ -178,12 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a364f67e9940d645952392b77313fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKilledByJumpingOnThem: 1
-  EnemySpeed: 3
+  MoveSpeed: 1.8
   facingRight: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0

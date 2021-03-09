@@ -16,7 +16,7 @@ public class PlayerController3D : MonoBehaviour
     public static PlayerController3D Instance;
 
     public Rigidbody playerRigidbody;
-    public Vector3 moveDirection;
+    Vector3 moveDirection;
 
     //References
     PlayerHealth playerHealth;
@@ -35,8 +35,6 @@ public class PlayerController3D : MonoBehaviour
     public PlayerFeedback Feedback => feedback;
 
     public Transform camTarget;
-
-    
 
     public void SetSteppedOnMovingPlatform(bool isOn) => motor.SetSteppedOnMovingPlatform(isOn);
 
@@ -118,7 +116,7 @@ public class PlayerController3D : MonoBehaviour
         if (other.gameObject.tag == "Coin")
         {
             AddScore(10);
-            if (SfxPlayer.instance != null)
+            if (SfxPlayer.instance == null)
             {
                 Debug.Log("Sfx player is not placed inside the level");
             }
@@ -127,6 +125,12 @@ public class PlayerController3D : MonoBehaviour
                 SfxPlayer.instance.Play_CoinPickup();
             }
             Destroy(other.gameObject);
+        }
+        
+        if (GameLayers.IsTargetOnEnemyLayer(other.gameObject))
+        {
+            //Touched enemy trigger
+            DamagePlayer(other);
         }
     }
     #endregion

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBullet_Translate : EnemyBulletBase
+public class EnemyBullet_Translate : EnemyBullet_Standard
 {
     public override void Activation ()
     {

@@ -34,7 +34,7 @@ public class ObjectPoolManager : MonoBehaviour
         pool_Bullet.Spawn(pos, rotation);
     }  
     
-    public void SpawnBouncingBullet (Vector3 pos, Quaternion rotation)
+    public void SpawnMustardGrenadeBullet (Vector3 pos, Quaternion rotation)
     {
         pool_BounceBullet.Spawn(pos, rotation);
     }

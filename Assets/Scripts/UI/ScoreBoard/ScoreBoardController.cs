@@ -40,6 +40,14 @@ public class ScoreBoardController : MonoBehaviour
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GoToNextLevel();
+        }
+    }
+
     IEnumerator PlayScoreTickingAnimation(int highScore)
     {
         //Tick and increase the highscore text from 0 to the current score

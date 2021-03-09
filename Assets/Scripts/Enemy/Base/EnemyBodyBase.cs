@@ -14,4 +14,5 @@ public abstract class EnemyBodyBase : EnemyBase
             Destroy(gameObject);
         }
     }
+
 }

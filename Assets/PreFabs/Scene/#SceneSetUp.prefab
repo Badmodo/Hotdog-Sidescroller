@@ -647,7 +647,8 @@ MonoBehaviour:
     type: 3}
   sfx_GameWon: {fileID: 3863620395090436233, guid: e3e23dc7f85a17e4889ace6dca0af51d,
     type: 3}
-  sfx_CoinPickup: {fileID: 0}
+  sfx_CoinPickup: {fileID: 121654164970767593, guid: fb5caec54ba2ad6468c3670aaa571435,
+    type: 3}
 --- !u!1 &3421004241952568545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,7 +3063,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3421004242951972145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca91ffd801a02534d9817165b01bb0da, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d2f698a8e7558a43b08efd4ee2ec9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EvilHotdog: {fileID: 0}
