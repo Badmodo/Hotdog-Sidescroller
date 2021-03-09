@@ -27,7 +27,7 @@ public class Goomba : EnemyBodyBase
         offset_top = new Vector3(0f, extent, 0f);
         offset_bot = new Vector3(0f, -extent, 0f);
 
-        ExecuteVelocity();
+        
     }
 
     protected override void Start()
@@ -39,8 +39,8 @@ public class Goomba : EnemyBodyBase
     private void Update()
     {
         WallhitDetection();
-        
-        //UpdateMovementDirection();
+
+        ExecuteVelocity();
     }
 
     private void WallhitDetection()
@@ -72,13 +72,13 @@ public class Goomba : EnemyBodyBase
         facingRight = !facingRight;
         sr.flipX = facingRight;
         moveDir.x = facingRight ? Mathf.Abs(moveDir.x) : -Mathf.Abs(moveDir.x);
-        ExecuteVelocity();
+        //ExecuteVelocity();
     }
 
-    public override void DamagedPlayer()
-    {
-        ExecuteVelocity();
-    }
+    //public override void DamagedPlayer()
+    //{
+    //    ExecuteVelocity();
+    //}
 
     protected void ExecuteVelocity () => rb.velocity = moveDir * MoveSpeed;
 }

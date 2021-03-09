@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92555685dd824b440af6855c2b335540, type: 3}
-  m_Name: BGM 3_Freezer_B
+  m_Name: BGM 11_Freezer_B
   m_EditorClassIdentifier: 
   Song: {fileID: 8300000, guid: 1a6e6c758ed62e6488a2d40f0a620d1a, type: 3}
   LevelRange: 040000000500000006000000

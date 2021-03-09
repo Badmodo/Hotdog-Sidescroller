@@ -25,6 +25,13 @@ public class Intro : MonoBehaviour
         StartCoroutine(WaitToSpawn());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+            SceneManager.LoadScene("Main Menu");
+    }
+
+
     IEnumerator WaitToSpawn()
     {
         yield return new WaitForSeconds(3);

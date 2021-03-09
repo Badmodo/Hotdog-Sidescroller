@@ -15,6 +15,14 @@ public class DestoryGameObjectInTime : MonoBehaviour
         StartCoroutine(DestroyGameObject());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+    }
+
     IEnumerator DestroyGameObject()
     {
         yield return new WaitForSeconds(TimeBeforeKill);

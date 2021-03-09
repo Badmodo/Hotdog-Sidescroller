@@ -31,6 +31,7 @@ public class WholeGrainMustardEnemy : EnemyBodyBase
         {
             yield return new WaitForSeconds(delay);
             animator.SetTrigger("IsAttcking");
+            yield return new WaitForSeconds(0.7f);
             ShootBullet();
         }
     }

@@ -33,7 +33,7 @@ public class MainMenuEffects : MonoBehaviour
         //Fade out vignett
         if (volume.profile.TryGetSettings(out vignette))
         {
-            Debug.Log(vignette == null);
+            //Debug.Log(vignette == null);
             StartCoroutine(FadeOutVignette());
         }
     }

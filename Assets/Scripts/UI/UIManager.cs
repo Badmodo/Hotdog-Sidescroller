@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using EditorApplication = UnityEditor.EditorApplication;
+//using EditorApplication = UnityEditor.EditorApplication;
 
 
 
